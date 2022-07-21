@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -12,7 +13,15 @@ function NavBar({ setUser }) {
   }
   return (
     <div>
-      <h1>Navigation Bar</h1>
+      <Link to="/">
+        <h1>NPS Digital Passport</h1>
+      </Link>
+      <Link to="/testing">
+        <button>View Passport</button>
+      </Link>
+      <Link to="/profile">
+        <button>Update Profile</button>
+      </Link>
       <button onClick={handleLogoutClick}>Log Out</button>
     </div>
   );
