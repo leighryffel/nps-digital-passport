@@ -43,37 +43,30 @@ function ParkCard({ user, park }) {
   }
 
   function handleStampClick() {
-    const newPark = {
-      id: park.id,
-      name: park.fullName,
-      latitude: park.latitude,
-      longitude: park.longitude,
-      activities: park.activities,
-      states: park.states,
-      designation: park.designation,
-      description: park.description,
-      image_url: park.images[0].url,
-    };
-    const newUserPark = {
-      park_id: park.id,
-      user_id: user.id,
-    };
-    console.log(newPark);
-    console.log(newUserPark);
     fetch("/parks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPark),
+      body: JSON.stringify({
+        id: park.id,
+        name: park.fullName,
+        latitude: park.latitude,
+        longitude: park.longitude,
+        activities: park.activities,
+        states: park.states,
+        designation: park.designation,
+        description: park.description,
+        image_url: park.images[0].url,
+      }),
     });
-    // fetch("/user_parks", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(newUserPark),
-    // });
+    fetch("/user_parks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ park_id: park.id, user_id: user.id }),
+    });
   }
 
   if (
@@ -83,10 +76,10 @@ function ParkCard({ user, park }) {
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card style={{ width: "30rem" }}>
+      <Card style={{ width: "20rem" }}>
+        <Card.Img variant="left" alt={park.fullName} src={park.images[0].url} />
         <Card.Body>
           <Card.Title>{park.fullName}</Card.Title>
-          <Card.Img alt={park.fullName} src={park.images[0].url} />
           <Card.Text>Located in: {park.states}</Card.Text>
           <Card.Text>Park Latitude: {park.latitude}</Card.Text>
           <Card.Text>Park Longitude: {park.longitude}</Card.Text>
