@@ -5,7 +5,6 @@ import ParksList from "./ParksList";
 function App() {
   const [count, setCount] = useState(0);
   const [parks, setParks] = useState([]);
-  const parksArray = [];
 
   useEffect(() => {
     fetch("/hello")
@@ -18,8 +17,18 @@ function App() {
       `https://developer.nps.gov/api/v1/parks?limit=159&q=designation%3D%22National%20Park%22&api_key=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
-      .then((data) => setParks(data.data))
+      .then((data) => setParks(data.data));
   }, []);
+
+  function addParkToBucketList() {
+    console.log("Saved to BucketList database!");
+    // line to add the park to the Park database
+  }
+
+  function addParkToStamps() {
+    console.log("Saved to UserParks database");
+    // line to add the park to the Park database
+  }
 
   return (
     <BrowserRouter>
@@ -32,7 +41,11 @@ function App() {
             <div>
               <h1>Home Page</h1>
               <h2>
-                <ParksList parksArray={parksArray} parks={parks} />
+                <ParksList
+                  parks={parks}
+                  addParkToBucketList={addParkToBucketList}
+                  addParkToStamps={addParkToStamps}
+                />
               </h2>
             </div>
           </Route>

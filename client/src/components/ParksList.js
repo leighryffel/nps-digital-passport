@@ -1,16 +1,16 @@
 import React from "react";
 import ParkCard from "./ParkCard";
 
-function ParksList({ parks, parksArray }) {
-  
-  Object.values(parks).forEach((park) => {
-    parksArray.push(park);
-  });
-
+function ParksList({ parks, addParkToBucketList, addParkToStamps }) {
   return (
     <div>
-      {parksArray.map((park) => (
-        <ParkCard park={park} key={park.id} />
+      {parks.map((park) => (
+        <ParkCard
+          park={park}
+          key={park.id}
+          addParkToBucketList={addParkToBucketList}
+          addParkToStamps={addParkToStamps}
+        />
       ))}
     </div>
   );
