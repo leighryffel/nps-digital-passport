@@ -4,6 +4,7 @@ import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
 import UserProfile from "./UserProfile";
+import Passport from "./Passport";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -25,15 +26,16 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  function addParkToBucketList() {
-    console.log("Saved to BucketList database!");
-    // line to add the park to the Park database
-  }
+  // function addParkToBucketList() {
+  //   console.log("Saved to BucketList database!");
+  //   // line to add the park to the Park database
+  //   fetch("POST")
+  // }
 
-  function addParkToStamps() {
-    console.log("Saved to UserParks database");
-    // line to add the park to the Park database
-  }
+  // function addParkToStamps() {
+  //   console.log("Saved to UserParks database");
+  //   // line to add the park to the Park database
+  // }
 
   if (!user) return <LoginPage onLogin={setUser} />;
 
@@ -45,10 +47,7 @@ function App() {
           <UserProfile user={user} />
         </Route>
         <Route path="/testing">
-          <h1>
-            {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
-            Passport
-          </h1>
+          <Passport user={user} />
         </Route>
         <Route path="/">
           <div>
@@ -57,8 +56,6 @@ function App() {
               <ParksList
                 user={user}
                 parks={parks}
-                addParkToBucketList={addParkToBucketList}
-                addParkToStamps={addParkToStamps}
               />
             </h2>
           </div>
