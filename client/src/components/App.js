@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
+import UserProfile from "./UserProfile";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
 
@@ -38,29 +38,33 @@ function App() {
   if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <NavBar setUser={setUser} />
-        <Switch>
-          <Route path="/testing">
-            <h1>Page Count: {count}</h1>
-          </Route>
-          <Route path="/">
-            <div>
-              <h1>Home Page</h1>
-              <h2>
-                <ParksList
-                  user={user}
-                  parks={parks}
-                  addParkToBucketList={addParkToBucketList}
-                  addParkToStamps={addParkToStamps}
-                />
-              </h2>
-            </div>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div>
+      <NavBar setUser={setUser} />
+      <Switch>
+        <Route path="/profile">
+          <UserProfile user={user} />
+        </Route>
+        <Route path="/testing">
+          <h1>
+            {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
+            Passport
+          </h1>
+        </Route>
+        <Route path="/">
+          <div>
+            <h1>Home Page</h1>
+            <h2>
+              <ParksList
+                user={user}
+                parks={parks}
+                addParkToBucketList={addParkToBucketList}
+                addParkToStamps={addParkToStamps}
+              />
+            </h2>
+          </div>
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
