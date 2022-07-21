@@ -53,10 +53,7 @@ function App() {
           <div>
             <h1>Home Page</h1>
             <h2>
-              <ParksList
-                user={user}
-                parks={parks}
-              />
+              <ParksList user={user} parks={parks} />
             </h2>
           </div>
         </Route>
