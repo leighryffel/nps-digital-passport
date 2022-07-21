@@ -46,7 +46,7 @@ function App() {
         <Route path="/profile">
           <UserProfile user={user} />
         </Route>
-        <Route path="/testing">
+        <Route path="/passport">
           <Passport user={user} />
         </Route>
         <Route path="/">

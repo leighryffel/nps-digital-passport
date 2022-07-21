@@ -16,7 +16,7 @@ function NavBar({ setUser }) {
       <Link to="/">
         <h1>NPS Digital Passport</h1>
       </Link>
-      <Link to="/testing">
+      <Link to="/passport">
         <button>View Passport</button>
       </Link>
       <Link to="/profile">
