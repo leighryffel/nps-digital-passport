@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  # route to test your configuration
-  get '/hello', to: 'application#hello_world'
 
-  # delete index from all resources except reviews
-
-  resources :users, only: [:index, :create, :update]
+  # can delete index from all resources except reviews
+  # resources :users, only: [:index, :create, :update]
   resources :parks, only: [:index, :create]
   resources :user_parks, only: [:index, :create, :destroy]
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :bucket_lists, only: [:index, :create, :destroy]
   resources :bucket_list_parks, only: [:index, :create, :destroy]
+
+  # routes for signup and login
+  post "/signup", to: "users#create"
+  get "/me", to: "users#show"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
   
   get '*path',
     to: 'fallback#index',

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function ParkCard({ park, addParkToBucketList, addParkToStamps }) {
+function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
   const [activityToggle, setActivityToggle] = useState(false);
 
   const activityList = park.activities.map((activity) => (
