@@ -31,10 +31,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
     t.string "name"
     t.string "latitude"
     t.string "longitude"
-    t.string "activities"
+    t.text "activities", default: [], array: true
     t.string "states"
     t.string "designation"
-    t.string "description"
+    t.text "description"
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
   create_table "reviews", force: :cascade do |t|
     t.integer "park_id"
     t.integer "user_id"
-    t.string "text"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
