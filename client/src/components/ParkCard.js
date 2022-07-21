@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { Card, Button } from "react-bootstrap";
 
-function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
+function ParkCard({ user, park }) {
   const [activityToggle, setActivityToggle] = useState(false);
 
   const activityList = park.activities.map((activity) => (
@@ -31,7 +32,14 @@ function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
       },
       body: JSON.stringify(newPark),
     });
-    addParkToBucketList();
+    // fetch("/bucket_list_parks", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ user_id: user.id, park_id: park.id }),
+    // });
+    // addParkToBucketList();
   }
 
   function handleStampClick() {
@@ -46,6 +54,12 @@ function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
       description: park.description,
       image_url: park.images[0].url,
     };
+    const newUserPark = {
+      park_id: park.id,
+      user_id: user.id,
+    };
+    console.log(newPark);
+    console.log(newUserPark);
     fetch("/parks", {
       method: "POST",
       headers: {
@@ -53,7 +67,13 @@ function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
       },
       body: JSON.stringify(newPark),
     });
-    addParkToStamps();
+    // fetch("/user_parks", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(newUserPark),
+    // });
   }
 
   if (
@@ -63,18 +83,20 @@ function ParkCard({ user, park, addParkToBucketList, addParkToStamps }) {
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <div>
-        <h1>{park.fullName}</h1>
-        <img alt={park.fullName} src={park.images[0].url} />
-        <h2>Located in: {park.states}</h2>
-        <h3>Park Latitude: {park.latitude}</h3>
-        <h3>Park Longitude: {park.longitude}</h3>
-        <p>Designation: {park.designation}</p>
-        <button onClick={changeToggle}>View Activities</button>
-        {activityToggle ? <h4>Park Activities: {activityList}</h4> : null}
-        <button onClick={handleBucketClick}>Add to Bucket List</button>
-        <button onClick={handleStampClick}>Stamp Passport</button>
-      </div>
+      <Card style={{ width: "30rem" }}>
+        <Card.Body>
+          <Card.Title>{park.fullName}</Card.Title>
+          <Card.Img alt={park.fullName} src={park.images[0].url} />
+          <Card.Text>Located in: {park.states}</Card.Text>
+          <Card.Text>Park Latitude: {park.latitude}</Card.Text>
+          <Card.Text>Park Longitude: {park.longitude}</Card.Text>
+          <Card.Text>Designation: {park.designation}</Card.Text>
+          <Button onClick={changeToggle}>View Activities</Button>
+          {activityToggle ? <h4>Park Activities: {activityList}</h4> : null}
+          <Button onClick={handleBucketClick}>Add to Bucket List</Button>
+          <Button onClick={handleStampClick}>Stamp Passport</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
