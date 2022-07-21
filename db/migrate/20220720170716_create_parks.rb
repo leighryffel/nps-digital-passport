@@ -4,10 +4,10 @@ class CreateParks < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :latitude
       t.string :longitude
-      t.string :activities
+      t.text :activities, array: true, default: []
       t.string :states
       t.string :designation
-      t.string :description
+      t.text :description
       t.string :image_url
 
       t.timestamps

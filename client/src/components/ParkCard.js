@@ -60,13 +60,13 @@ function ParkCard({ user, park }) {
         image_url: park.images[0].url,
       }),
     });
-    fetch("/user_parks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ park_id: park.id, user_id: user.id }),
-    });
+    // fetch("/user_parks", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ park_id: park.id, user_id: user.id }),
+    // });
   }
 
   if (
