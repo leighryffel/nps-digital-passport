@@ -1,15 +1,20 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import LoginPage from "./LoginPage";
+import NavBar from "./NavBar";
 import ParksList from "./ParksList";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
 
   useEffect(() => {
-    fetch("/hello")
-      .then((res) => res.json())
-      .then((data) => setCount(data.count));
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -30,9 +35,12 @@ function App() {
     // line to add the park to the Park database
   }
 
+  if (!user) return <LoginPage onLogin={setUser} />;
+
   return (
     <BrowserRouter>
       <div className="App">
+        <NavBar setUser={setUser} />
         <Switch>
           <Route path="/testing">
             <h1>Page Count: {count}</h1>
@@ -42,6 +50,7 @@ function App() {
               <h1>Home Page</h1>
               <h2>
                 <ParksList
+                  user={user}
                   parks={parks}
                   addParkToBucketList={addParkToBucketList}
                   addParkToStamps={addParkToStamps}
