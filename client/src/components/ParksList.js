@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ParkCard from "./ParkCard";
 import {
   Dropdown,
@@ -9,11 +9,15 @@ import {
 } from "react-bootstrap";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
+  const [filter, setFilter] = useState("Auto and ATV");
+
   function handleDropDownClick(e) {
-    console.log(e.target.innerHTML);
+    setFilter(e.target.innerHTML);
+    console.log(selectedParks);
   }
 
   const activityArray = [
+    "View All",
     "Arts and Culture",
     "Astronomy",
     "Auto and ATV",
@@ -62,6 +66,12 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     </Dropdown.Item>
   ));
 
+  const selectedParks = parks.filter((park) =>
+    park.activities.some((activity) => activity["name"] === filter)
+  );
+
+  // let hasMagenicVendor = vendors.some((vendor) => vendor["Name"] === "Magenic");
+
   return (
     <div>
       <div className="park-list-header">
@@ -73,7 +83,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
       </div>
       <Container>
         <Row>
-          {parks.map((park) => (
+          {selectedParks.map((park) => (
             <ParkCard
               user={user}
               park={park}

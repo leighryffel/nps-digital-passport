@@ -38,7 +38,7 @@ function ParkCard({ user, park }) {
     setBucketToggle(!bucketToggle);
   }
 
-  // THIS IS STILL NOT WORKING AND DOESN'T LET YOU ADD A PARK TWICE WITHOUT ERROR
+  // THIS WORKS BUT DOESN'T LET YOU REMOVE A STAMP NOR DOES THE BUTTON CHANGE PERSIST
   function handleStampClick() {
     fetch("/user_parks", {
       method: "POST",
