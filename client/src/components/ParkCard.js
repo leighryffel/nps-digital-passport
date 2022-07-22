@@ -8,7 +8,7 @@ function ParkCard({ user, park }) {
   const [bucketToggle, setBucketToggle] = useState(true);
 
   const activityList = park.activities.map((activity) => (
-    <p key={activity.id}>{activity.name}</p>
+    <p key={activity.id}>⭐ {activity.name}</p>
   ));
 
   function changeToggle() {
@@ -66,7 +66,7 @@ function ParkCard({ user, park }) {
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card style={{ width: "20rem" }}>
+      <Card className="park-list-card" style={{ width: "20rem" }}>
         <Card.Img variant="left" alt={park.fullName} src={park.images[0].url} />
         <Card.Body>
           <Card.Title>{park.fullName}</Card.Title>
@@ -74,12 +74,14 @@ function ParkCard({ user, park }) {
           <p>Park Latitude: {park.latitude}</p>
           <Card.Text>Park Longitude: {park.longitude}</Card.Text>
           <Card.Text>Designation: {park.designation}</Card.Text>
-          <Button onClick={changeToggle}>View Activities</Button>
-          {activityToggle ? <h4>Park Activities: {activityList}</h4> : null}
-          <Button onClick={handleBucketClick}>
+          <Button className="park-card-button" onClick={changeToggle}>
+            View Activities
+          </Button>
+          {activityToggle ? <div>{activityList} </div> : null}
+          <Button className="park-card-button" onClick={handleBucketClick}>
             {bucketToggle ? "Add to Bucket List" : "Remove From Bucket List"}
           </Button>
-          <Button onClick={handleStampClick}>
+          <Button className="park-card-button" onClick={handleStampClick}>
             {stampToggle ? "Stamp Passport" : "Remove Stamp"}
           </Button>
         </Card.Body>
