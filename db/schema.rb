@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
     t.string "name"
     t.string "latitude"
     t.string "longitude"
-    t.text "activities", default: [], array: true
+    t.text "activities"
     t.string "states"
     t.string "designation"
     t.text "description"
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
     t.string "name"
     t.string "latitude"
     t.string "longitude"
-    t.text "activities", default: [], array: true
+    t.text "activities"
     t.string "states"
     t.string "designation"
     t.text "description"

@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
+import MapView from "./MapView";
 import UserProfile from "./UserProfile";
 import Passport from "./Passport";
 
@@ -34,6 +35,9 @@ function App() {
       <Switch>
         <Route path="/profile">
           <UserProfile user={user} />
+        </Route>
+        <Route path="/mapview">
+          <MapView parks={parks} />
         </Route>
         <Route path="/passport">
           <Passport user={user} />

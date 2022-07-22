@@ -6,7 +6,7 @@ class CreateBucketListParks < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :latitude
       t.string :longitude
-      t.text :activities, array: true, default: []
+      t.text :activities
       t.string :states
       t.string :designation
       t.text :description

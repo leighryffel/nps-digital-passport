@@ -1,6 +1,12 @@
 import React from "react";
 import ParkCard from "./ParkCard";
-import { Dropdown, DropdownButton, Container, Row } from "react-bootstrap";
+import {
+  Dropdown,
+  DropdownButton,
+  Button,
+  Container,
+  Row,
+} from "react-bootstrap";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   function handleDropDownClick(e) {
@@ -63,7 +69,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
         <DropdownButton id="dropdown-basic-button" title="Filter by Activity">
           {activityDropDown}
         </DropdownButton>
-        <button>Switch to Map View</button>
+        <Button href="/mapview">Switch to Map View</Button>
       </div>
       <Container>
         <Row>
