@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.park-list-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.NavBar{
+  display: inline-block;
+  text-align:center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.park-list-card img {
+  padding-top: 0.5em;
+  width: auto;
+  height: 10em;
+  border-radius: 1%;
+}
+
+.park-list-card {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+.park-card-button {
+  margin-bottom: 0.2em;
 }
