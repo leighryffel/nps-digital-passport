@@ -1,3 +1,3 @@
 class BucketListParkSerializer < ActiveModel::Serializer
-  attributes :id, :bucket_list_id, :park_id
+  attributes :id, :bucket_list_id, :name, :latitude, :longitude, :activities, :states, :designation, :description, :image_url
 end

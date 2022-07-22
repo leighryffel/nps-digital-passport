@@ -4,6 +4,8 @@ import { Card, Button } from "react-bootstrap";
 
 function ParkCard({ user, park }) {
   const [activityToggle, setActivityToggle] = useState(false);
+  const [stampToggle, setStampToggle] = useState(true);
+  const [bucketToggle, setBucketToggle] = useState(true);
 
   const activityList = park.activities.map((activity) => (
     <p key={activity.id}>{activity.name}</p>
@@ -14,43 +16,14 @@ function ParkCard({ user, park }) {
   }
 
   function handleBucketClick() {
-    const newPark = {
-      id: park.id,
-      name: park.fullName,
-      latitude: park.latitude,
-      longitude: park.longitude,
-      activities: park.activities,
-      states: park.states,
-      designation: park.designation,
-      description: park.description,
-      image_url: park.images[0].url,
-    };
-    console.log(newPark)
-    fetch("/parks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPark),
-    });
-    // fetch("/bucket_list_parks", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ user_id: user.id, park_id: park.id }),
-    // });
-    // addParkToBucketList();
-  }
-
-  function handleStampClick() {
-    fetch("/parks", {
+    fetch("/user_parks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         id: park.id,
+        user_id: user.id,
         name: park.fullName,
         latitude: park.latitude,
         longitude: park.longitude,
@@ -61,13 +34,29 @@ function ParkCard({ user, park }) {
         image_url: park.images[0].url,
       }),
     });
-    // fetch("/user_parks", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ park_id: park.id, user_id: user.id }),
-    // });
+    setBucketToggle(!bucketToggle);
+  }
+
+  function handleStampClick() {
+    fetch("/user_parks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: park.id,
+        user_id: user.id,
+        name: park.fullName,
+        latitude: park.latitude,
+        longitude: park.longitude,
+        activities: park.activities,
+        states: park.states,
+        designation: park.designation,
+        description: park.description,
+        image_url: park.images[0].url,
+      }),
+    });
+    setStampToggle(!stampToggle);
   }
 
   if (
@@ -87,8 +76,12 @@ function ParkCard({ user, park }) {
           <Card.Text>Designation: {park.designation}</Card.Text>
           <Button onClick={changeToggle}>View Activities</Button>
           {activityToggle ? <h4>Park Activities: {activityList}</h4> : null}
-          <Button onClick={handleBucketClick}>Add to Bucket List</Button>
-          <Button onClick={handleStampClick}>Stamp Passport</Button>
+          <Button onClick={handleBucketClick}>
+            {bucketToggle ? "Add to Bucket List" : "Remove From Bucket List"}
+          </Button>
+          <Button onClick={handleStampClick}>
+            {stampToggle ? "Stamp Passport" : "Remove Stamp"}
+          </Button>
         </Card.Body>
       </Card>
     );

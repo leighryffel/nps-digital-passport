@@ -14,20 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bucket_list_parks", force: :cascade do |t|
+  create_table "bucket_list_parks", id: :string, force: :cascade do |t|
     t.integer "bucket_list_id"
-    t.integer "park_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "bucket_lists", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parks", force: :cascade do |t|
     t.string "name"
     t.string "latitude"
     t.string "longitude"
@@ -40,17 +28,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bucket_lists", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
-    t.integer "park_id"
+    t.string "user_park_id"
     t.integer "user_id"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_parks", force: :cascade do |t|
+  create_table "user_parks", id: :string, force: :cascade do |t|
     t.integer "user_id"
-    t.integer "park_id"
+    t.string "name"
+    t.string "latitude"
+    t.string "longitude"
+    t.text "activities", default: [], array: true
+    t.string "states"
+    t.string "designation"
+    t.text "description"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

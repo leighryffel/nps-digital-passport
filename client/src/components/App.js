@@ -26,17 +26,6 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  // function addParkToBucketList() {
-  //   console.log("Saved to BucketList database!");
-  //   // line to add the park to the Park database
-  //   fetch("POST")
-  // }
-
-  // function addParkToStamps() {
-  //   console.log("Saved to UserParks database");
-  //   // line to add the park to the Park database
-  // }
-
   if (!user) return <LoginPage onLogin={setUser} />;
 
   return (

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   # can delete index from all resources except reviews
   # resources :users, only: [:index, :create, :update]
-  resources :parks, only: [:index, :create]
+  # resources :parks, only: [:index, :create]
   resources :user_parks, only: [:index, :create, :destroy]
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :bucket_lists, only: [:index, :create, :destroy]

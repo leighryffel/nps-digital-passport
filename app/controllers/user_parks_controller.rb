@@ -21,7 +21,7 @@ class UserParksController < ApplicationController
   private
   
   def user_park_params
-    params.permit(:user_id, :park_id)
+    params.permit(:user_id, :name, :latitude, :longitude, :activities, :states, :designation, :description, :image_url, :id)
   end
 
 end
