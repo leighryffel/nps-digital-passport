@@ -1,6 +1,6 @@
 import React from "react";
 import ParkCard from "./ParkCard";
-import { Container, Row } from "react-bootstrap";
+import { Card, Button, Container, Row } from "react-bootstrap";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   return (

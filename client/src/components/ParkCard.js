@@ -81,7 +81,7 @@ function ParkCard({ user, park }) {
         <Card.Body>
           <Card.Title>{park.fullName}</Card.Title>
           <Card.Text>Located in: {park.states}</Card.Text>
-          <Card.Text>Park Latitude: {park.latitude}</Card.Text>
+          <p>Park Latitude: {park.latitude}</p>
           <Card.Text>Park Longitude: {park.longitude}</Card.Text>
           <Card.Text>Designation: {park.designation}</Card.Text>
           <Button onClick={changeToggle}>View Activities</Button>

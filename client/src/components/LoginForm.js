@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -7,7 +8,6 @@ function LoginForm({ onLogin }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(username, password);
     fetch("/login", {
       method: "POST",
       headers: {
@@ -26,30 +26,34 @@ function LoginForm({ onLogin }) {
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="login-username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-        <div>
-          {errors.map((err) => (
-            <p key={err}>{err}</p>
-          ))}
-        </div>
-      </form>
+      <Container>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <br></br>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <br></br>
+          <button type="submit">Login</button>
+          <div>
+            {errors.map((err) => (
+              <p key={err}>{err}</p>
+            ))}
+          </div>
+        </form>
+      </Container>
     </div>
   );
 }
