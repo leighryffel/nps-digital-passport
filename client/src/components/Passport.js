@@ -8,8 +8,7 @@ function Passport({ user }) {
   useEffect(() => {
     fetch("/user_parks")
       .then((res) => res.json())
-      .then(setUserParks)
-      .then(console.log(userParks))
+      .then(setUserParks);
   }, []);
 
   const filteredUserParks = userParks.filter(

@@ -15,15 +15,16 @@ function ParkCard({ user, park }) {
     return setActivityToggle((activityToggle) => !activityToggle);
   }
 
+  // THIS IS STILL NOT WORKING
   function handleBucketClick() {
-    fetch("/user_parks", {
+    fetch("/bucket_list_parks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         id: park.id,
-        user_id: user.id,
+        bucket_list_id: user.bucket_list.id,
         name: park.fullName,
         latitude: park.latitude,
         longitude: park.longitude,
@@ -37,6 +38,7 @@ function ParkCard({ user, park }) {
     setBucketToggle(!bucketToggle);
   }
 
+  // THIS IS STILL NOT WORKING AND DOESN'T LET YOU ADD A PARK TWICE WITHOUT ERROR
   function handleStampClick() {
     fetch("/user_parks", {
       method: "POST",
