@@ -8,7 +8,8 @@ function Passport({ user }) {
   useEffect(() => {
     fetch("/user_parks")
       .then((res) => res.json())
-      .then(setUserParks);
+      .then(setUserParks)
+      .then(console.log(userParks))
   }, []);
 
   const filteredUserParks = userParks.filter(
@@ -16,7 +17,7 @@ function Passport({ user }) {
   );
 
   const stampList = filteredUserParks.map((userPark) => (
-    <PassportStamp park={userPark.park} key={userPark.id} />
+    <PassportStamp park={userPark} key={userPark.id} />
   ));
 
   return (

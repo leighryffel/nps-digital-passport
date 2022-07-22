@@ -1,5 +1,4 @@
 class UserParkSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :user_id, :name, :latitude, :longitude, :activities, :states, :designation, :description, :image_url
   belongs_to :user
-  belongs_to :park
 end
