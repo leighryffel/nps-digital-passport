@@ -25,6 +25,7 @@ function ParkCard({ user, park }) {
       description: park.description,
       image_url: park.images[0].url,
     };
+    console.log(newPark)
     fetch("/parks", {
       method: "POST",
       headers: {
