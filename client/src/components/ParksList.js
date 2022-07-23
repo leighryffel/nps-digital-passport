@@ -73,14 +73,12 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     <div>
       <div className="park-list-header">
         <h1>View All National Parks</h1>
-        <DropdownButton
-          // style={{ maxHeight: "28px" }}
-          id="dropdown-basic-button"
-          title="Filter by Activity"
-        >
+        <DropdownButton className="park-list-button" title="Filter by Activity">
           {activityDropDown}
         </DropdownButton>
-        <Button href="/mapview">Switch to Map View</Button>
+        <Button className="park-list-button" href="/mapview">
+          Switch to Map View
+        </Button>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>
