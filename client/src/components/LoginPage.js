@@ -6,7 +6,7 @@ function LoginPage({ onLogin, createBucketList }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
+    <div className="app">
       <LoginForm onLogin={onLogin} />
       <SignupForm createBucketList={createBucketList} onLogin={onLogin} />
     </div>

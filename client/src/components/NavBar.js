@@ -13,7 +13,7 @@ function NavBar({ setUser }) {
     });
   }
   return (
-    <Navbar>
+    <Navbar className="navigation">
       <Link to="/">
         <h1>NPS Digital Passport</h1>
       </Link>

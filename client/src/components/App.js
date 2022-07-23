@@ -41,7 +41,7 @@ function App() {
     return <LoginPage onLogin={setUser} createBucketList={createBucketList} />;
 
   return (
-    <div>
+    <div className="app">
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">
