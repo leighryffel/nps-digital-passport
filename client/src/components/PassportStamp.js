@@ -2,12 +2,16 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 
 function PassportStamp({ park }) {
+  function handleViewStamp() {
+    console.log("Open This Park's Page");
+  }
+
   return (
-    <Card>
+    <Card className="stamp-card">
       <Card.Body>
+        <Card.Img className="stamp-image" onClick={handleViewStamp} src={park.image_url} />
         <Card.Title>{park.name}</Card.Title>
-        <Card.Text>{park.description}</Card.Text>
-        <Button>Log a Memory</Button>
+        <Button>See Memories</Button>
       </Card.Body>
     </Card>
   );

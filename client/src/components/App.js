@@ -27,7 +27,18 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  if (!user) return <LoginPage onLogin={setUser} />;
+  function createBucketList() {
+    fetch("/bucket_lists", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: user.id }),
+    });
+  }
+
+  if (!user)
+    return <LoginPage onLogin={setUser} createBucketList={createBucketList} />;
 
   return (
     <div>

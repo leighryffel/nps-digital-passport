@@ -27,3 +27,28 @@
 .park-card-button {
   margin-bottom: 0.2em;
 }
+
+/* This isn't working quite right yet */
+.nav-button {
+  display: inline-block;
+  justify-content:right;
+  margin-left: 0.4em;
+  margin-right: 0.4em;
+}
+
+.user-info {
+  padding-top: 1em;
+}
+
+.avatar {
+  border: 5px solid #555;
+}
+
+.stamp-image {
+  width: 5em;
+  height: 5em;
+}
+
+.stamp-card {
+  width: 10em;
+}

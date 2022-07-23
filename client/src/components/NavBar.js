@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -13,18 +13,20 @@ function NavBar({ setUser }) {
     });
   }
   return (
-    <div className="NavBar">
-        <Link to="/">
-          <h1>NPS Digital Passport</h1>
-        </Link>
-        <Link to="/passport">
-          <button>View Passport</button>
-        </Link>
-        <Link to="/profile">
-          <button>Update Profile</button>
-        </Link>
-        <button onClick={handleLogoutClick}>Log Out</button>
-    </div>
+    <Navbar>
+      <Link to="/">
+        <h1>NPS Digital Passport</h1>
+      </Link>
+      <Link to="/passport">
+        <button className="nav-button">View Passport</button>
+      </Link>
+      <Link to="/profile">
+        <button className="nav-button">Update Profile</button>
+      </Link>
+      <button className="nav-button" onClick={handleLogoutClick}>
+        Log Out
+      </button>
+    </Navbar>
   );
 }
 

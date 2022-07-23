@@ -40,13 +40,14 @@ function ParkCard({ user, park }) {
 
   // THIS WORKS BUT DOESN'T LET YOU REMOVE A STAMP NOR DOES THE BUTTON CHANGE PERSIST
   function handleStampClick() {
+    const newId = park.id+user.id
     fetch("/user_parks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: park.id,
+        id: newId,
         user_id: user.id,
         name: park.fullName,
         latitude: park.latitude,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 
-function SignupForm({ onLogin }) {
+function SignupForm({ onLogin, createBucketList }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -23,14 +23,17 @@ function SignupForm({ onLogin }) {
         location: location,
         image_url: avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => onLogin(user));
-      } else {
-        res.json().then((err) => setErrors(err.errors));
-      }
-    });
+    })
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((user) => onLogin(user));
+        } else {
+          res.json().then((err) => setErrors(err.errors));
+        }
+      })
+      .then(createBucketList());
   }
+
 
   return (
     <div>

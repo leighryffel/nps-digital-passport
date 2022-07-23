@@ -9,11 +9,10 @@ import {
 } from "react-bootstrap";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
-  const [filter, setFilter] = useState("Auto and ATV");
+  const [filter, setFilter] = useState("View All");
 
   function handleDropDownClick(e) {
     setFilter(e.target.innerHTML);
-    console.log(selectedParks);
   }
 
   const activityArray = [
@@ -70,28 +69,45 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     park.activities.some((activity) => activity["name"] === filter)
   );
 
-  // let hasMagenicVendor = vendors.some((vendor) => vendor["Name"] === "Magenic");
-
   return (
     <div>
       <div className="park-list-header">
         <h1>View All National Parks</h1>
-        <DropdownButton id="dropdown-basic-button" title="Filter by Activity">
+        <DropdownButton
+          // style={{ maxHeight: "28px" }}
+          id="dropdown-basic-button"
+          title="Filter by Activity"
+        >
           {activityDropDown}
         </DropdownButton>
         <Button href="/mapview">Switch to Map View</Button>
       </div>
+      {filter === "View All" ? (
+        <h3>All Parks</h3>
+      ) : (
+        <h3>Parks with {filter}</h3>
+      )}
       <Container>
         <Row>
-          {selectedParks.map((park) => (
-            <ParkCard
-              user={user}
-              park={park}
-              key={park.id}
-              addParkToBucketList={addParkToBucketList}
-              addParkToStamps={addParkToStamps}
-            />
-          ))}
+          {filter === "View All"
+            ? parks.map((park) => (
+                <ParkCard
+                  user={user}
+                  park={park}
+                  key={park.id}
+                  addParkToBucketList={addParkToBucketList}
+                  addParkToStamps={addParkToStamps}
+                />
+              ))
+            : selectedParks.map((park) => (
+                <ParkCard
+                  user={user}
+                  park={park}
+                  key={park.id}
+                  addParkToBucketList={addParkToBucketList}
+                  addParkToStamps={addParkToStamps}
+                />
+              ))}
         </Row>
       </Container>
     </div>
