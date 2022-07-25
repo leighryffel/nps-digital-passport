@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
+// import { Container } from "react-bootstrap";
 
 function SignupForm({ onLogin, createBucketList }) {
   const [username, setUsername] = useState("");
@@ -38,7 +38,7 @@ function SignupForm({ onLogin, createBucketList }) {
   return (
     <div>
       <h1>Sign Up</h1>
-      <Container>
+      <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
@@ -92,7 +92,7 @@ function SignupForm({ onLogin, createBucketList }) {
             ))}
           </div>
         </form>
-      </Container>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-.app {
+/* .app {
   background-color: #feb5ba;
 }
 
@@ -6,18 +6,18 @@
   background-color: #42234e;
   color: white;
   border-color: #42234e;
-}
+} 
 
-/* This is not working */
-.app button :hover {
+ This is not working 
+ .app button :hover {
   background-color: #ac5169;
   border-color: #ac5169;
-}
+} 
 
-.park-list-button {
-  /* background-color: #42234e; */
+ .park-list-button {
+  background-color: #42234e;
   border-color: #42234e;
-}
+} 
 
 .park-list-button :hover {
   background-color: #ac5169;
@@ -36,9 +36,9 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 .navigation a {
-  color: #ac5169;
-  /* background-color: white; */
-}
+  color: #ac5169; 
+  background-color: white; 
+} 
 
 .park-list-card img {
   padding-top: 0.5em;
@@ -58,7 +58,7 @@
   margin-bottom: 0.2em;
 }
 
-/* This isn't working quite right yet */
+This isn't working quite right yet
 .nav-button {
   display: inline-block;
   justify-content:right;
@@ -82,3 +82,4 @@
 .stamp-card {
   width: 10em;
 }
+*/

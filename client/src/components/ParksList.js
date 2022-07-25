@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import ParkCard from "./ParkCard";
-import {
-  Dropdown,
-  DropdownButton,
-  Button,
-  Container,
-  Row,
-} from "react-bootstrap";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [filter, setFilter] = useState("View All");
 
-  function handleDropDownClick(e) {
-    setFilter(e.target.innerHTML);
+  function handleChange(e) {
+    setFilter(e.target.value);
   }
 
   const activityArray = [
@@ -60,9 +54,9 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   ];
 
   const activityDropDown = activityArray.map((activity, index) => (
-    <Dropdown.Item key={index} onClick={handleDropDownClick}>
+    <MenuItem key={index} value={activity}>
       {activity}
-    </Dropdown.Item>
+    </MenuItem>
   ));
 
   const selectedParks = parks.filter((park) =>
@@ -73,20 +67,29 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     <div>
       <div className="park-list-header">
         <h1>View All National Parks</h1>
-        <DropdownButton className="park-list-button" title="Filter by Activity">
-          {activityDropDown}
-        </DropdownButton>
-        <Button className="park-list-button" href="/mapview">
+        <FormControl fullWidth>
+          <InputLabel id="activity-select-label">Filter by Activity</InputLabel>
+          <Select
+            labelId="activity-select-label"
+            id="activity-select"
+            value={filter}
+            label="Activity"
+            onChange={handleChange}
+          >
+            {activityDropDown}
+          </Select>
+        </FormControl>
+        <button className="park-list-button" href="/mapview">
           Switch to Map View
-        </Button>
+        </button>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>
       ) : (
         <h3>Parks with {filter}</h3>
       )}
-      <Container>
-        <Row>
+      <div>
+        <div>
           {filter === "View All"
             ? parks.map((park) => (
                 <ParkCard
@@ -106,8 +109,8 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
                   addParkToStamps={addParkToStamps}
                 />
               ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 }
