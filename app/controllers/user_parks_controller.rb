@@ -1,8 +1,10 @@
 class UserParksController < ApplicationController
 
+  skip_before_action :authorize, only: :index
   # READ /user_parks
   def index
-    render json: UserPark.all, status: :ok
+    user_parks = UserPark.all
+    render json: user_parks, status: :ok
   end
   
   # POST /user_parks

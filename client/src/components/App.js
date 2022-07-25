@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
 import MapView from "./MapView";
 import UserProfile from "./UserProfile";
 import Passport from "./Passport";
+import PassportReview from "./PassportReview";
 
 function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
+  const [selectedPark, setSelectedPark] = useState({});
+
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,31 +30,31 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  function createBucketList() {
-    fetch("/bucket_lists", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user_id: user.id }),
-    });
-  }
-
-  if (!user)
-    return <LoginPage onLogin={setUser} createBucketList={createBucketList} />;
+  if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
     <div className="app">
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">
-          <UserProfile user={user} createBucketList={createBucketList} />
+          <UserProfile user={user} />
         </Route>
         <Route path="/mapview">
           <MapView parks={parks} />
         </Route>
         <Route path="/passport">
-          <Passport user={user} />
+          <Passport
+            user={user}
+            selectedPark={selectedPark}
+            setSelectedPark={setSelectedPark}
+          />
+        </Route>
+        <Route path="/review">
+          <PassportReview
+            selectedPark={selectedPark}
+            setSelectedPark={setSelectedPark}
+            user={user}
+          />
         </Route>
         <Route path="/">
           <div>

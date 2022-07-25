@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PassportStamp from "./PassportStamp";
-// import { Container, Row } from "react-bootstrap";
 
-function Passport({ user }) {
+function Passport({ user, selectedPark, setSelectedPark }) {
   const [userParks, setUserParks] = useState([]);
 
   useEffect(() => {
@@ -16,7 +15,12 @@ function Passport({ user }) {
   );
 
   const stampList = filteredUserParks.map((userPark) => (
-    <PassportStamp park={userPark} key={userPark.id} />
+    <PassportStamp
+      selectedPark={selectedPark}
+      setSelectedPark={setSelectedPark}
+      park={userPark}
+      key={userPark.id}
+    />
   ));
 
   return (

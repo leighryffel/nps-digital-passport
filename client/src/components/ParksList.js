@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ParkCard from "./ParkCard";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
+import { FormControl, InputLabel, Select, MenuItem, Button } from "@mui/material";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [filter, setFilter] = useState("View All");
@@ -53,12 +54,6 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     "Wildlife Watching",
   ];
 
-  const activityDropDown = activityArray.map((activity, index) => (
-    <MenuItem key={index} value={activity}>
-      {activity}
-    </MenuItem>
-  ));
-
   const selectedParks = parks.filter((park) =>
     park.activities.some((activity) => activity["name"] === filter)
   );
@@ -76,12 +71,16 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
             label="Activity"
             onChange={handleChange}
           >
-            {activityDropDown}
+            {activityArray.map((activity, index) => (
+              <MenuItem key={index} value={activity}>
+                {activity}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
-        <button className="park-list-button" href="/mapview">
-          Switch to Map View
-        </button>
+        <Link to="/mapview">
+          <Button>Switch to Map View</Button>
+        </Link>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>

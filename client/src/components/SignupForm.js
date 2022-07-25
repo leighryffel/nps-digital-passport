@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { Container } from "react-bootstrap";
 
-function SignupForm({ onLogin, createBucketList }) {
+function SignupForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -31,7 +31,6 @@ function SignupForm({ onLogin, createBucketList }) {
           res.json().then((err) => setErrors(err.errors));
         }
       })
-      .then(createBucketList());
   }
 
 

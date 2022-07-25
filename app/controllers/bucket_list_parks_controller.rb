@@ -21,7 +21,7 @@ class BucketListParksController < ApplicationController
   private
   
   def bucket_list_park_params
-    params.permit(:bucket_list_id, :id, :name, :latitude, :longitude, :activities, :states, :designation, :description, :image_url)
+    params.permit(:user_id, :id, :name, :latitude, :longitude, :activities, :states, :designation, :description, :image_url)
   end
   
 end

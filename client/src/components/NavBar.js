@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -17,14 +18,14 @@ function NavBar({ setUser }) {
         <h1>NPS Digital Passport</h1>
       </Link>
       <Link to="/passport">
-        <button className="nav-button">View Passport</button>
+        <Button className="nav-button">View Passport</Button>
       </Link>
       <Link to="/profile">
-        <button className="nav-button">Update Profile</button>
+        <Button className="nav-button">Update Profile</Button>
       </Link>
-      <button className="nav-button" onClick={handleLogoutClick}>
+      <Button className="nav-button" onClick={handleLogoutClick}>
         Log Out
-      </button>
+      </Button>
     </nav>
   );
 }
