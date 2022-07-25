@@ -45,7 +45,9 @@ function PassportReview({ user }) {
         user_id: user.id,
         text: text,
       }),
-    }).then(() => setChange(!change));
+    })
+      .then(() => setText(""))
+      .then(() => setChange(!change));
   }
 
   return (
@@ -60,6 +62,7 @@ function PassportReview({ user }) {
           rows="10"
           cols="25"
           placeholder={placeholder}
+          value={text}
           onChange={(e) => setText(e.target.value)}
         ></textarea>
         <br></br>
