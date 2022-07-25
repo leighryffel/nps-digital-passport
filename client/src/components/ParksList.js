@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ParkCard from "./ParkCard";
 import { Link } from "react-router-dom";
-import { FormControl, InputLabel, Select, MenuItem, Button } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Button,
+} from "@mui/material";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [filter, setFilter] = useState("View All");
+  const [userParks, setUserParks] = useState([]);
+  const [userBucketList, setUserBucketList] = useState([]);
+  const [change, setChange] = useState(false);
+
+  useEffect(() => {
+    fetch("/user_parks")
+      .then((res) => res.json())
+      .then((data) => setUserParks(data));
+  }, [change]);
+
+  useEffect(() => {
+    fetch("/bucket_list_parks")
+      .then((res) => res.json())
+      .then((data) => setUserBucketList(data));
+  }, [change]);
 
   function handleChange(e) {
     setFilter(e.target.value);
@@ -97,6 +118,10 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
                   key={park.id}
                   addParkToBucketList={addParkToBucketList}
                   addParkToStamps={addParkToStamps}
+                  userParks={userParks}
+                  userBucketList={userBucketList}
+                  change={change}
+                  setChange={setChange}
                 />
               ))
             : selectedParks.map((park) => (
@@ -106,6 +131,10 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
                   key={park.id}
                   addParkToBucketList={addParkToBucketList}
                   addParkToStamps={addParkToStamps}
+                  userParks={userParks}
+                  userBucketList={userBucketList}
+                  change={change}
+                  setChange={setChange}
                 />
               ))}
         </div>

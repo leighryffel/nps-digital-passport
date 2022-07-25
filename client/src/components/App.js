@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
@@ -12,7 +12,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
   const [selectedPark, setSelectedPark] = useState({});
-
 
   useEffect(() => {
     fetch("/me").then((r) => {

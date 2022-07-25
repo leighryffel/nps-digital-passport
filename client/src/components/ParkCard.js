@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,12 +6,17 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-function ParkCard({ user, park }) {
+function ParkCard({
+  user,
+  park,
+  change,
+  setChange,
+  userParks,
+  userBucketList,
+}) {
   const [activityToggle, setActivityToggle] = useState(false);
   const [stampToggle, setStampToggle] = useState(true);
   const [bucketToggle, setBucketToggle] = useState(true);
-  // const [userParks, setUserParks] = useState([]);
-  // const [userBucketList, setUserBucketList] = useState([]);
 
   const activityList = park.activities.map((activity) => (
     <p key={activity.id}>⭐ {activity.name}</p>
@@ -40,8 +45,9 @@ function ParkCard({ user, park }) {
         description: park.description,
         image_url: park.images[0].url,
       }),
-    });
-    setBucketToggle(!bucketToggle);
+    })
+      .then(setChange(!change))
+      .then(setBucketToggle(!bucketToggle));
   }
 
   // THIS WORKS BUT DOESN'T LET YOU REMOVE A STAMP NOR DOES THE BUTTON CHANGE PERSIST
@@ -64,12 +70,18 @@ function ParkCard({ user, park }) {
         description: park.description,
         image_url: park.images[0].url,
       }),
-    }).then(setStampToggle(!stampToggle));
+    })
+      .then(setChange(!change))
+      .then(setStampToggle(!stampToggle));
   }
 
-  // const isStamped = user.user_parks.some(
-  //   (user_park) => user_park.fullName === park.name
-  // );
+  const isStamped = userParks.map((user_park) =>
+    user_park.name === park.fullName ? true : false
+  );
+
+  const isOnBucketList = userBucketList.map((bucket_list_park) =>
+    bucket_list_park.name === park.fullName ? true : false
+  );
 
   if (
     park.designation === "National Park" ||
@@ -95,12 +107,20 @@ function ParkCard({ user, park }) {
           <Button className="park-card-button" onClick={changeToggle}>
             View Activities
           </Button>
-          <Button className="park-card-button" onClick={handleBucketClick}>
-            {bucketToggle ? "Add to Bucket List" : "Remove From Bucket List"}
-          </Button>
-          <Button className="park-card-button" onClick={handleStampClick}>
-            {stampToggle ? "Stamp Passport" : "Remove Stamp"}
-          </Button>
+          {isOnBucketList.includes(true) ? (
+            <Button className="park-card-button">On Your Bucket List!</Button>
+          ) : (
+            <Button className="park-card-button" onClick={handleBucketClick}>
+              Add to Bucket List
+            </Button>
+          )}
+          {isStamped.includes(true) ? (
+            <Button className="park-card-button">You've Visited!</Button>
+          ) : (
+            <Button className="park-card-button" onClick={handleStampClick}>
+              Stamp Passport
+            </Button>
+          )}
         </CardActions>
       </Card>
     );
