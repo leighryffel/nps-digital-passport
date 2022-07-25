@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
 import MapView from "./MapView";
 import UserProfile from "./UserProfile";
 import Passport from "./Passport";
+import PassportReview from "./PassportReview";
 
 function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
+  const [selectedPark, setSelectedPark] = useState({});
+
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,9 +30,7 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-
-  if (!user)
-    return <LoginPage onLogin={setUser} />;
+  if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
     <div className="app">
@@ -42,7 +43,18 @@ function App() {
           <MapView parks={parks} />
         </Route>
         <Route path="/passport">
-          <Passport user={user} />
+          <Passport
+            user={user}
+            selectedPark={selectedPark}
+            setSelectedPark={setSelectedPark}
+          />
+        </Route>
+        <Route path="/review">
+          <PassportReview
+            selectedPark={selectedPark}
+            setSelectedPark={setSelectedPark}
+            user={user}
+          />
         </Route>
         <Route path="/">
           <div>

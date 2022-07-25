@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function PassportStamp({ park }) {
-  const [selectedPark, setSelectedPark] = useState("");
+  const history = useHistory();
 
-  function handleViewStamp() {
-    setSelectedPark(park.name);
-    console.log(selectedPark);
-  }
+  const handleViewStamp = (data) => {
+    history.push("/review", { data: data });
+  };
 
   return (
     <div className="stamp-card">
       <div>
         <img
           className="stamp-image"
-          onClick={handleViewStamp}
           src={park.image_url}
         />
         <h1>{park.name}</h1>
-        <button onClick={handleViewStamp}>See Memories</button>
+        <Button onClick={() => handleViewStamp(park)}>Log a Memory</Button>
       </div>
     </div>
   );

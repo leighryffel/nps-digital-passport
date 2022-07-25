@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
-import { CardMedia } from "@mui/material";
+import CardActions from "@mui/material/CardActions";
+import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -10,7 +10,8 @@ function ParkCard({ user, park }) {
   const [activityToggle, setActivityToggle] = useState(false);
   const [stampToggle, setStampToggle] = useState(true);
   const [bucketToggle, setBucketToggle] = useState(true);
-  const [errors, setErrors] = useState([]);
+  // const [userParks, setUserParks] = useState([]);
+  // const [userBucketList, setUserBucketList] = useState([]);
 
   const activityList = park.activities.map((activity) => (
     <p key={activity.id}>⭐ {activity.name}</p>
@@ -20,7 +21,6 @@ function ParkCard({ user, park }) {
     return setActivityToggle((activityToggle) => !activityToggle);
   }
 
-  // THIS IS STILL NOT WORKING
   function handleBucketClick() {
     const newId = park.id + user.id;
     fetch("/bucket_list_parks", {
@@ -64,14 +64,12 @@ function ParkCard({ user, park }) {
         description: park.description,
         image_url: park.images[0].url,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        setStampToggle(!stampToggle);
-      } else {
-        res.json().then((err) => setErrors(err.errors));
-      }
-    });
+    }).then(setStampToggle(!stampToggle));
   }
+
+  // const isStamped = user.user_parks.some(
+  //   (user_park) => user_park.fullName === park.name
+  // );
 
   if (
     park.designation === "National Park" ||
@@ -80,7 +78,7 @@ function ParkCard({ user, park }) {
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card className="park-list-card" style={{ width: "20rem" }}>
+      <Card sx={{ maxWidth: 400 }}>
         <CardMedia
           component="img"
           alt={park.fullName}
@@ -90,20 +88,20 @@ function ParkCard({ user, park }) {
           <Typography variant="h5">{park.fullName}</Typography>
           <Typography>Located in: {park.states}</Typography>
           <Typography>Designation: {park.designation}</Typography>
+          {activityToggle ? <Typography>{activityList} </Typography> : null}
+        </CardContent>
+
+        <CardActions>
           <Button className="park-card-button" onClick={changeToggle}>
             View Activities
           </Button>
-          {activityToggle ? <Typography>{activityList} </Typography> : null}
           <Button className="park-card-button" onClick={handleBucketClick}>
             {bucketToggle ? "Add to Bucket List" : "Remove From Bucket List"}
           </Button>
           <Button className="park-card-button" onClick={handleStampClick}>
             {stampToggle ? "Stamp Passport" : "Remove Stamp"}
           </Button>
-          <div>
-            {errors ? `The errors are: ${errors.message}` : null}
-          </div>
-        </CardContent>
+        </CardActions>
       </Card>
     );
   }
