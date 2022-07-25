@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PassportStamp from "./PassportStamp";
-import { Container, Row } from "react-bootstrap";
+// import { Container, Row } from "react-bootstrap";
 
 function Passport({ user }) {
   const [userParks, setUserParks] = useState([]);
@@ -26,9 +26,9 @@ function Passport({ user }) {
         Passport
       </h1>
       <h2>Your Stamps</h2>
-      <Container>
-        <Row>{stampList}</Row>
-      </Container>
+      <div>
+        <div>{stampList}</div>
+      </div>
     </div>
   );
 }

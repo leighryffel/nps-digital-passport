@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Navbar } from "react-bootstrap";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -13,7 +12,7 @@ function NavBar({ setUser }) {
     });
   }
   return (
-    <Navbar className="navigation">
+    <nav className="navigation">
       <Link to="/">
         <h1>NPS Digital Passport</h1>
       </Link>
@@ -26,7 +25,7 @@ function NavBar({ setUser }) {
       <button className="nav-button" onClick={handleLogoutClick}>
         Log Out
       </button>
-    </Navbar>
+    </nav>
   );
 }
 

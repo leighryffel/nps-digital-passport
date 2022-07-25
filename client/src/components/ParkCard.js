@@ -1,6 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Card, Button } from "react-bootstrap";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import { CardMedia } from "@mui/material";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function ParkCard({ user, park }) {
   const [activityToggle, setActivityToggle] = useState(false);
@@ -40,7 +46,7 @@ function ParkCard({ user, park }) {
 
   // THIS WORKS BUT DOESN'T LET YOU REMOVE A STAMP NOR DOES THE BUTTON CHANGE PERSIST
   function handleStampClick() {
-    const newId = park.id+user.id
+    const newId = park.id + user.id;
     fetch("/user_parks", {
       method: "POST",
       headers: {
@@ -70,24 +76,26 @@ function ParkCard({ user, park }) {
   ) {
     return (
       <Card className="park-list-card" style={{ width: "20rem" }}>
-        <Card.Img variant="left" alt={park.fullName} src={park.images[0].url} />
-        <Card.Body>
-          <Card.Title>{park.fullName}</Card.Title>
-          <Card.Text>Located in: {park.states}</Card.Text>
-          <p>Park Latitude: {park.latitude}</p>
-          <Card.Text>Park Longitude: {park.longitude}</Card.Text>
-          <Card.Text>Designation: {park.designation}</Card.Text>
+        <CardMedia
+          component="img"
+          alt={park.fullName}
+          image={park.images[0].url}
+        />
+        <CardContent>
+          <Typography variant="h5">{park.fullName}</Typography>
+          <Typography>Located in: {park.states}</Typography>
+          <Typography>Designation: {park.designation}</Typography>
           <Button className="park-card-button" onClick={changeToggle}>
             View Activities
           </Button>
-          {activityToggle ? <div>{activityList} </div> : null}
+          {activityToggle ? <Typography>{activityList} </Typography> : null}
           <Button className="park-card-button" onClick={handleBucketClick}>
             {bucketToggle ? "Add to Bucket List" : "Remove From Bucket List"}
           </Button>
           <Button className="park-card-button" onClick={handleStampClick}>
             {stampToggle ? "Stamp Passport" : "Remove Stamp"}
           </Button>
-        </Card.Body>
+        </CardContent>
       </Card>
     );
   }

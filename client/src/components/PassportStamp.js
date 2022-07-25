@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+// import { Card, Button } from "react-bootstrap";
 
 function PassportStamp({ park }) {
   function handleViewStamp() {
@@ -7,13 +7,13 @@ function PassportStamp({ park }) {
   }
 
   return (
-    <Card className="stamp-card">
-      <Card.Body>
-        <Card.Img className="stamp-image" onClick={handleViewStamp} src={park.image_url} />
-        <Card.Title>{park.name}</Card.Title>
-        <Button>See Memories</Button>
-      </Card.Body>
-    </Card>
+    <div className="stamp-card">
+      <div>
+        <img className="stamp-image" onClick={handleViewStamp} src={park.image_url} />
+        <h1>{park.name}</h1>
+        <button>See Memories</button>
+      </div>
+    </div>
   );
 }
 

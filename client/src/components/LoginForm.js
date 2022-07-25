@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -26,7 +25,7 @@ function LoginForm({ onLogin }) {
   return (
     <div>
       <h1>Login</h1>
-      <Container>
+      <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
@@ -53,7 +52,7 @@ function LoginForm({ onLogin }) {
             ))}
           </div>
         </form>
-      </Container>
+      </div>
     </div>
   );
 }

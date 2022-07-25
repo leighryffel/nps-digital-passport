@@ -45,7 +45,7 @@ function App() {
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">
-          <UserProfile user={user} />
+          <UserProfile user={user} createBucketList={createBucketList} />
         </Route>
         <Route path="/mapview">
           <MapView parks={parks} />
