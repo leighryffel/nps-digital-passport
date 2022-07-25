@@ -27,25 +27,16 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  function createBucketList() {
-    fetch("/bucket_lists", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user_id: user.id }),
-    });
-  }
 
   if (!user)
-    return <LoginPage onLogin={setUser} createBucketList={createBucketList} />;
+    return <LoginPage onLogin={setUser} />;
 
   return (
     <div className="app">
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">
-          <UserProfile user={user} createBucketList={createBucketList} />
+          <UserProfile user={user} />
         </Route>
         <Route path="/mapview">
           <MapView parks={parks} />

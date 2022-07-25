@@ -2,7 +2,7 @@ class CreateBucketListParks < ActiveRecord::Migration[7.0]
   def change
     create_table :bucket_list_parks, id: false do |t|
       t.string :id, null: false, primary_key: true
-      t.integer :bucket_list_id
+      t.integer :user_id
       t.string :name
       t.string :latitude
       t.string :longitude

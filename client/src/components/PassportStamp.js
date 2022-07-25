@@ -1,17 +1,23 @@
-import React from "react";
-// import { Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
 
 function PassportStamp({ park }) {
+  const [selectedPark, setSelectedPark] = useState("");
+
   function handleViewStamp() {
-    console.log("Open This Park's Page");
+    setSelectedPark(park.name);
+    console.log(selectedPark);
   }
 
   return (
     <div className="stamp-card">
       <div>
-        <img className="stamp-image" onClick={handleViewStamp} src={park.image_url} />
+        <img
+          className="stamp-image"
+          onClick={handleViewStamp}
+          src={park.image_url}
+        />
         <h1>{park.name}</h1>
-        <button>See Memories</button>
+        <button onClick={handleViewStamp}>See Memories</button>
       </div>
     </div>
   );

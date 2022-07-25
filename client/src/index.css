@@ -1,5 +1,5 @@
-/* .app {
-  background-color: #feb5ba;
+.app {
+  background-color: white;
 }
 
 .app button {
@@ -8,7 +8,7 @@
   border-color: #42234e;
 } 
 
- This is not working 
+ /* This is not working  */
  .app button :hover {
   background-color: #ac5169;
   border-color: #ac5169;
@@ -58,7 +58,7 @@
   margin-bottom: 0.2em;
 }
 
-This isn't working quite right yet
+/* This isn't working quite right yet */
 .nav-button {
   display: inline-block;
   justify-content:right;
@@ -82,4 +82,3 @@ This isn't working quite right yet
 .stamp-card {
   width: 10em;
 }
-*/

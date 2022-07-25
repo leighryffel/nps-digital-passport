@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ParkCard from "./ParkCard";
+import { Link } from "react-router-dom";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
@@ -79,9 +80,9 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
             {activityDropDown}
           </Select>
         </FormControl>
-        <button className="park-list-button" href="/mapview">
-          Switch to Map View
-        </button>
+        <Link to="/passport">
+          <button>Switch to Map View</button>
+        </Link>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>

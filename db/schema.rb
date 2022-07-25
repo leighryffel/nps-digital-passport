@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
   enable_extension "plpgsql"
 
   create_table "bucket_list_parks", id: :string, force: :cascade do |t|
-    t.integer "bucket_list_id"
+    t.integer "user_id"
     t.string "name"
     t.string "latitude"
     t.string "longitude"
@@ -24,12 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_20_170921) do
     t.string "designation"
     t.text "description"
     t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "bucket_lists", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

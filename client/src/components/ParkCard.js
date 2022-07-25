@@ -1,9 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import { CardMedia } from "@mui/material";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -12,6 +10,7 @@ function ParkCard({ user, park }) {
   const [activityToggle, setActivityToggle] = useState(false);
   const [stampToggle, setStampToggle] = useState(true);
   const [bucketToggle, setBucketToggle] = useState(true);
+  const [errors, setErrors] = useState([]);
 
   const activityList = park.activities.map((activity) => (
     <p key={activity.id}>⭐ {activity.name}</p>
@@ -23,14 +22,15 @@ function ParkCard({ user, park }) {
 
   // THIS IS STILL NOT WORKING
   function handleBucketClick() {
+    const newId = park.id + user.id;
     fetch("/bucket_list_parks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id: park.id,
-        bucket_list_id: user.bucket_list.id,
+        id: newId,
+        user_id: user.id,
         name: park.fullName,
         latitude: park.latitude,
         longitude: park.longitude,
@@ -64,8 +64,13 @@ function ParkCard({ user, park }) {
         description: park.description,
         image_url: park.images[0].url,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        setStampToggle(!stampToggle);
+      } else {
+        res.json().then((err) => setErrors(err.errors));
+      }
     });
-    setStampToggle(!stampToggle);
   }
 
   if (
@@ -95,6 +100,9 @@ function ParkCard({ user, park }) {
           <Button className="park-card-button" onClick={handleStampClick}>
             {stampToggle ? "Stamp Passport" : "Remove Stamp"}
           </Button>
+          <div>
+            {errors ? `The errors are: ${errors.message}` : null}
+          </div>
         </CardContent>
       </Card>
     );
