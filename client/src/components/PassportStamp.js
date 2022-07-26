@@ -55,10 +55,9 @@ function PassportStamp({ park }) {
         <button className="stamp-button" onClick={() => handleViewStamp(park)}>
           Log a Memory
         </button>
-        <br></br>
-        <button className="stamp-button" href={posterURL} target="_blank">
-          Order a Poster
-        </button>
+        <a href={posterURL} target="_blank" rel="noreferrer">
+          <button className="stamp-button">Order a Poster</button>
+        </a>
       </CardActions>
     </Card>
   );

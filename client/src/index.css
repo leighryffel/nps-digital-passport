@@ -212,6 +212,8 @@ body .update-profile{
 
 .stamp-button{
   font-family: 'Courier New', Courier, monospace;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
 }
 
 #toggle-list-view {

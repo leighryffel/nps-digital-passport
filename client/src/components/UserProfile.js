@@ -18,7 +18,6 @@ function UserProfile({ user }) {
   }
 
   function handleSubmit(e) {
-    console.log("submitting changes");
     const newUserInfo = {
       location: location,
       image_url: imageUrl,
