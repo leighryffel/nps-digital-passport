@@ -6,7 +6,7 @@ function LoginPage({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div className="app">
+    <div id="login-page">
       <h1>Welcome to the NPS Digital Passport!</h1>
       {showLogin ? (
         <>

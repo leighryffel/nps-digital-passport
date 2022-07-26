@@ -140,13 +140,17 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
       <div>
         <div>
           {filter === "View All" ? (
-            <Grid container cols={3} item spacing={10}>
-              {fullListToRender}
-            </Grid>
+            <div className="park-card-container">
+              <Grid container cols={3} item spacing={10}>
+                {fullListToRender}
+              </Grid>
+            </div>
           ) : (
-            <Grid container cols={3} item spacing={10}>
-              {filteredListToRender}
-            </Grid>
+            <div className="park-card-container">
+              <Grid container cols={3} item spacing={10}>
+                {filteredListToRender}
+              </Grid>
+            </div>
           )}
         </div>
       </div>

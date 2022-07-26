@@ -5,6 +5,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -17,17 +18,40 @@ function NavBar({ setUser }) {
     });
   }
   return (
-    <AppBar className="navigation">
+    <AppBar style={{ background: "#42234e", margin: "0em 0em 1em 0em" }}>
       <CssBaseline />
       <Toolbar>
         <Typography className="logo" variant="h4">
           NPS Digital Passport
         </Typography>
-        <div id="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/passport">View Passport</Link>
-          <Link to="/profile">Your Profile</Link>
-          <Button className="nav-button" onClick={handleLogoutClick}>
+        <div>
+          <Link
+            style={{ color: "white", margin: "5em 5em" }}
+            id="nav-link"
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            style={{ color: "white", margin: "5em 5em" }}
+            id="nav-link"
+            to="/passport"
+          >
+            View Passport
+          </Link>
+          <Link
+            style={{ color: "white", margin: "5em 5em" }}
+            id="nav-link"
+            to="/profile"
+          >
+            Your Profile
+          </Link>
+          {/* <Box flexGrow={0} /> */}
+          <Button
+            style={{ color: "white" }}
+            className="nav-button"
+            onClick={handleLogoutClick}
+          >
             Log Out
           </Button>
         </div>
