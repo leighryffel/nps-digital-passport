@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Typography from "@mui/material/Typography";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -13,20 +17,22 @@ function NavBar({ setUser }) {
     });
   }
   return (
-    <nav className="navigation">
-      <Link to="/">
-        <h1>NPS Digital Passport</h1>
-      </Link>
-      <Link to="/passport">
-        <Button className="nav-button">View Passport</Button>
-      </Link>
-      <Link to="/profile">
-        <Button className="nav-button">Your Profile</Button>
-      </Link>
-      <Button className="nav-button" onClick={handleLogoutClick}>
-        Log Out
-      </Button>
-    </nav>
+    <AppBar className="navigation">
+      <CssBaseline />
+      <Toolbar>
+        <Typography className="logo" variant="h4">
+          NPS Digital Passport
+        </Typography>
+        <div id="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/passport">View Passport</Link>
+          <Link to="/profile">Your Profile</Link>
+          <Button className="nav-button" onClick={handleLogoutClick}>
+            Log Out
+          </Button>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 

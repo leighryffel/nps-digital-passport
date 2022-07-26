@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 
-function UserProfile({ user, stampCount, bucketCount }) {
+function UserProfile({ user }) {
   const [toggleUpdateForm, setToggleUpdateForm] = useState(false);
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -19,7 +19,6 @@ function UserProfile({ user, stampCount, bucketCount }) {
   }
 
   function handleSubmit(e) {
-    // e.preventDefault();
     console.log("submitting changes");
     const newUserInfo = {
       location: location,

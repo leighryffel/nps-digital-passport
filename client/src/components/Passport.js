@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PassportStamp from "./PassportStamp";
+import { Grid } from "@mui/material";
 
 function Passport({ user, selectedPark, setSelectedPark }) {
   const [userParks, setUserParks] = useState([]);
@@ -24,16 +25,22 @@ function Passport({ user, selectedPark, setSelectedPark }) {
   ));
 
   return (
-    <div>
-      <h1>
-        {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
-        Passport
-      </h1>
-      <h2>Your Stamps</h2>
-      <div>
-        <div>{stampList}</div>
+    <>
+      <div className="passport-header">
+        <h1>
+          {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
+          Passport
+        </h1>
       </div>
-    </div>
+      <div className="passport-title">
+        <h2>Your Stamps</h2>
+      </div>
+      <div className="stamp-list">
+        <Grid container cols={3} item spacing={10}>
+          {stampList}
+        </Grid>
+      </div>
+    </>
   );
 }
 

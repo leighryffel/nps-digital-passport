@@ -13,8 +13,6 @@ function ParkCard({
   setChange,
   userParks,
   userBucketList,
-  setBucketCount,
-  setStampCount,
 }) {
   const [activityToggle, setActivityToggle] = useState(false);
   const [stampToggle, setStampToggle] = useState(true);
@@ -52,7 +50,6 @@ function ParkCard({
       .then(setBucketToggle(!bucketToggle));
   }
 
-  // THIS WORKS BUT DOESN'T LET YOU REMOVE A STAMP NOR DOES THE BUTTON CHANGE PERSIST
   function handleStampClick() {
     const newId = park.id + user.id;
     fetch("/user_parks", {

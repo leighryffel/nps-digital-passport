@@ -14,10 +14,6 @@ function ParksList({
   parks,
   addParkToBucketList,
   addParkToStamps,
-  bucketCount,
-  setBucketCount,
-  stampCount,
-  setStampCount,
 }) {
   const [filter, setFilter] = useState("View All");
   const [userParks, setUserParks] = useState([]);
@@ -131,8 +127,6 @@ function ParksList({
                   userBucketList={userBucketList}
                   change={change}
                   setChange={setChange}
-                  setBucketCount={setBucketCount}
-                  setStampCount={setStampCount}
                 />
               ))
             : selectedParks.map((park) => (

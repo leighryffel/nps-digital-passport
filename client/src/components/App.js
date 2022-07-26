@@ -12,8 +12,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
   const [selectedPark, setSelectedPark] = useState({});
-  const [bucketCount, setBucketCount] = useState(0);
-  const [stampCount, setStampCount] = useState(0);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -40,8 +38,6 @@ function App() {
         <Route path="/profile">
           <UserProfile
             user={user}
-            bucketCount={bucketCount}
-            stampCount={stampCount}
           />
         </Route>
         <Route path="/mapview">
@@ -66,10 +62,6 @@ function App() {
             <ParksList
               user={user}
               parks={parks}
-              bucketCount={bucketCount}
-              setBucketCount={setBucketCount}
-              stampCount={stampCount}
-              setStampCount={setStampCount}
             />
           </div>
         </Route>
