@@ -18,7 +18,9 @@ function ParkCard({
   const [bucketToggle, setBucketToggle] = useState(true);
 
   const activityList = park.activities.map((activity) => (
-    <p id="park-list-activity" key={activity.id}>⭐ {activity.name}</p>
+    <p id="park-list-activity" key={activity.id}>
+      ⭐ {activity.name}
+    </p>
   ));
 
   function changeToggle() {
@@ -113,9 +115,7 @@ function ParkCard({
           <Typography id="park-text-designation">
             Designation: {park.designation}
           </Typography>
-          {activityToggle ? (
-            <Typography id="park-text-activites">{activityList} </Typography>
-          ) : null}
+          {activityToggle ? <div>{activityList} </div> : null}
         </CardContent>
 
         <CardActions>

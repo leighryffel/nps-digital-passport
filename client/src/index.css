@@ -106,9 +106,9 @@ body .update-profile{
 
 #nav-links {
   color: white;
-  display: flex;
-  align-items: center;
-  justify-items: end;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-items: end; */
 }
 
 #nav-title{
@@ -133,6 +133,7 @@ body .update-profile{
 
 .parks-list {
   font-family: 'Courier New', Courier, monospace;
+  margin-left: 1em;
 }
 
 
