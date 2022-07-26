@@ -11,12 +11,11 @@ The NPS Digital Passport is a way to ensure that no matter when you visit a park
 - **MVP**: As a user, I can:
   - Log into the site
   - View a list of all National Park locations
-  - Filter National Parks list by amenities
+  - Filter National Parks list by activities
   - Add a National Park stamp to my Digital Parks Passport (favorite)
   - Create a review for a National Park in my passport
   - Modify or delete a review that I left
   - Order a poster of a National Park that I've visited
-  - Map of parks with location view inside
   - Update details on my profile (location, bucket list, photo)
 - **Stretch**: As a user, I can:
   - Toggle to Map View (as opposed to List View)
