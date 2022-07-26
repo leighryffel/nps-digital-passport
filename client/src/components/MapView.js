@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function MapView() {
   return (
-    <div>
+    <div style={{ margin: "5em 0em 0em 1em" }}>
       <h1>Map View</h1>
       <Link to="/">
-        <Button>Switch to List View</Button>
+        <button id="toggle-list-view">Switch to List View</button>
       </Link>
       <div>
         <iframe

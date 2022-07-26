@@ -4,8 +4,19 @@ body #login-page {
   background-size: 100% 100%;
 }
 
-body {
+body #user-profile {
   background-color: #ac5169;
+  margin: 5em 5em 5em 2em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+body #user-information {
+  background-color: #fe9ea2;
+}
+
+body .update-profile{
+  background-color: #fe9ea2;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Login Page */
@@ -80,13 +91,13 @@ body {
   width: 50%;
   text-align: center;
   margin-bottom: 2.5em;
-  /* background-color: #feb5ba; */
   margin-left: 1em;
   margin-right: 1em;
 }
 
 .park-list-controls button {
   font-family: 'Courier New', Courier, monospace;
+  padding: 1em;
 }
 
 #activity-select-label {
@@ -138,4 +149,17 @@ body {
 
 #park-list-add-passport-button {
   font-family: 'Courier New', Courier, monospace;
+}
+
+#stamp-title {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stamp-button{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#toggle-list-view {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1em;
 }

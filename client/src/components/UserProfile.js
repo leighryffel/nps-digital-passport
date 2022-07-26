@@ -35,35 +35,47 @@ function UserProfile({ user }) {
   }
 
   return (
-    <div style={{ margin: "5em 0em 0em 2em" }}>
+    <div id="user-profile">
       <h1>Account Information</h1>
-      <div>
+      <div id="user-information">
         <img alt="avatar" src={user.image_url} />
         <ul>
-          <li>Username: {user.username}</li>
-          <li>Location: {user.location}</li>
-          <li>Bucket List Parks: {user.bucket_count}</li>
-          <li>Number of Parks Visited: {user.stamps_count}</li>
+          <li>
+            <strong>Username:</strong> {user.username}
+          </li>
+          <li>
+            <strong>Location:</strong> {user.location}
+          </li>
+          <li>
+            <strong>Bucket List Parks:</strong> {user.bucket_count}
+          </li>
+          <li>
+            <strong>Number of Parks Visited:</strong> {user.stamps_count}
+          </li>
         </ul>
       </div>
-      <Button onClick={handleUpdateClick}>Update Profile</Button>
-      {toggleUpdateForm ? (
-        <form onSubmit={handleSubmit}>
-          <label>Update Location:</label>
-          <input
-            type="text"
-            placeholder="I'm located in..."
-            onChange={handleLocationChange}
-          />
-          <label>Update Avatar URL:</label>
-          <input
-            type="text"
-            placeholder="Insert URL"
-            onChange={handleImageChange}
-          />
-          <Button type="submit">Submit Changes</Button>
-        </form>
-      ) : null}
+      <div className="update-profile">
+        <Button onClick={handleUpdateClick}>Update Profile</Button>
+        {toggleUpdateForm ? (
+          <form onSubmit={handleSubmit}>
+            <label>
+              <strong>Update Location:</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="I'm located in..."
+              onChange={handleLocationChange}
+            />
+            <label><strong>Update Avatar URL:</strong></label>
+            <input
+              type="text"
+              placeholder="Insert URL"
+              onChange={handleImageChange}
+            />
+            <Button type="submit">Submit Changes</Button>
+          </form>
+        ) : null}
+      </div>
     </div>
   );
 }

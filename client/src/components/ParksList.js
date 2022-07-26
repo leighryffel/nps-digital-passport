@@ -132,7 +132,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
             </Select>
           </FormControl>
           <Link to="/mapview">
-            <Button>Switch to Map View</Button>
+            <button className="toggle-map-view">Switch to Map View</button>
           </Link>
         </div>
       </div>

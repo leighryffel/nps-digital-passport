@@ -25,15 +25,17 @@ function PassportStamp({ park }) {
           alt={park.name}
         />
         <CardContent>
-          <Typography variant="h6" component="div">
+          <Typography id="stamp-title" variant="h6" component="div">
             {park.name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <button onClick={() => handleViewStamp(park)}>Log a Memory</button>
+        <button className="stamp-button" onClick={() => handleViewStamp(park)}>
+          Log a Memory
+        </button>
         <br></br>
-        <button href={posterURL} target="_blank">
+        <button className="stamp-button" href={posterURL} target="_blank">
           Order a Poster
         </button>
       </CardActions>

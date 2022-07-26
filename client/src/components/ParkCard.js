@@ -3,7 +3,6 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 function ParkCard({
@@ -120,22 +119,30 @@ function ParkCard({
         </CardContent>
 
         <CardActions>
-          <Button id="park-list-activity-button" onClick={changeToggle}>
+          <button id="park-list-activity-button" onClick={changeToggle}>
             {activityToggle ? "Hide Activities" : "View Activities"}
-          </Button>
+          </button>
           {isOnBucketList.includes(true) ? (
-            <Button id="park-list-in-bucket-button">On Your Bucket List!</Button>
+            <button id="park-list-in-bucket-button">
+              On Your Bucket List!
+            </button>
           ) : (
-            <Button id="park-list-add-bucket-button" onClick={handleBucketClick}>
+            <button
+              id="park-list-add-bucket-button"
+              onClick={handleBucketClick}
+            >
               Add to Bucket List
-            </Button>
+            </button>
           )}
           {isStamped.includes(true) ? (
-            <Button id="park-list-in-passport-button">You've Visited!</Button>
+            <button id="park-list-in-passport-button">You've Visited!</button>
           ) : (
-            <Button id="park-list-add-passport-button" onClick={handleStampClick}>
+            <button
+              id="park-list-add-passport-button"
+              onClick={handleStampClick}
+            >
               Stamp Passport
-            </Button>
+            </button>
           )}
         </CardActions>
       </Card>
