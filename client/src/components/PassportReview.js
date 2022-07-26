@@ -52,9 +52,9 @@ function PassportReview({ user }) {
 
   return (
     <div style={{margin: "5em 0em 0em 2em"}}>
-      <h1>{park.name}</h1>
+      <h1 className="review-text">{park.name}</h1>
       <img style={{ width: "30%"}} alt={park.name} src={park.image_url} />
-      <h3>Your Memories</h3>
+      <h3 className="review-text">Your Memories</h3>
       {reviewList}
       <br></br>
       <form>
@@ -66,7 +66,7 @@ function PassportReview({ user }) {
           onChange={(e) => setText(e.target.value)}
         ></textarea>
         <br></br>
-        <Button onClick={handleSubmit}>Submit Your Memory</Button>
+        <button id="review-button" onClick={handleSubmit}>Submit Your Memory</button>
       </form>
     </div>
   );

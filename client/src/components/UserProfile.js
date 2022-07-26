@@ -31,7 +31,6 @@ function UserProfile({ user }) {
       },
       body: JSON.stringify(newUserInfo),
     });
-    // .then(() => setChange(!change));
   }
 
   return (
@@ -55,7 +54,7 @@ function UserProfile({ user }) {
         </ul>
       </div>
       <div className="update-profile">
-        <Button onClick={handleUpdateClick}>Update Profile</Button>
+        <button onClick={handleUpdateClick}>Update Profile</button>
         {toggleUpdateForm ? (
           <form onSubmit={handleSubmit}>
             <label>
@@ -66,13 +65,15 @@ function UserProfile({ user }) {
               placeholder="I'm located in..."
               onChange={handleLocationChange}
             />
-            <label><strong>Update Avatar URL:</strong></label>
+            <label>
+              <strong>Update Avatar URL:</strong>
+            </label>
             <input
               type="text"
               placeholder="Insert URL"
               onChange={handleImageChange}
             />
-            <Button type="submit">Submit Changes</Button>
+            <button id="submit-profile-changes" type="submit">Submit Changes</button>
           </form>
         ) : null}
       </div>

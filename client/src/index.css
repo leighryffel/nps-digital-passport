@@ -8,15 +8,48 @@ body #user-profile {
   background-color: #ac5169;
   margin: 5em 5em 5em 2em;
   font-family: 'Courier New', Courier, monospace;
+  border-radius: 5% 5% 5% 5%;
+  width: 50%;
+}
+
+body #user-profile h1 {
+  font-family: 'Courier New', Courier, monospace;
+  margin-left: 1em;
 }
 
 body #user-information {
   background-color: #fe9ea2;
+  width: 60%;
+  border-radius: 5% 5% 5% 5%;
+  margin-left: 1em;
 }
 
 body .update-profile{
-  background-color: #fe9ea2;
   font-family: 'Courier New', Courier, monospace;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.update-profile button {
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 1em;
+}
+
+.update-profile input {
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 1em;
+}
+
+#submit-profile-changes {
+  margin-left: 1em;
+}
+
+.update-profile label {
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 1em;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 /* Login Page */
@@ -78,26 +111,48 @@ body .update-profile{
   justify-items: end;
 }
 
+#nav-title{
+  margin-left: 0.5em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-link-1 {
+  font-family: 'Courier New', Courier, monospace;
+}
+#nav-link-2 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-link-3 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#nav-link-4 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .parks-list {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.park-list-header {
-  margin-top: 3em;
-  font-family: 'Courier New', Courier, monospace;
-}
 
 .park-list-controls {
-  width: 50%;
+  margin-top: 5em;
+  font-family: 'Courier New', Courier, monospace;
+  /* width: 50%; */
   text-align: center;
   margin-bottom: 2.5em;
-  margin-left: 1em;
+  /* margin-left: 1em; */
   margin-right: 1em;
+  height: 4em;
 }
 
 .park-list-controls button {
   font-family: 'Courier New', Courier, monospace;
   padding: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
+  height: 4em;
 }
 
 #activity-select-label {
@@ -162,4 +217,25 @@ body .update-profile{
 #toggle-list-view {
   font-family: 'Courier New', Courier, monospace;
   padding: 1em;
+  margin-bottom: 1em;
+}
+
+#map-header {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.review-text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#review-button {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+}
+
+.edit-review {
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 1em;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+  margin-right: 0.5em;
 }

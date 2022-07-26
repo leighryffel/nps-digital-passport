@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
 
 function PassportStamp({ park }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   const history = useHistory();
 
   const handleViewStamp = (data) => {
@@ -15,8 +17,20 @@ function PassportStamp({ park }) {
 
   const posterURL = `https://national-park-posters.com/pages/search-results-page?q=${park.name}`;
 
+  function handleMouseOver() {
+    setIsHovered(true);
+  }
+
+  function handleMouseAway() {
+    setIsHovered(false);
+  }
+
   return (
-    <Card sx={{ maxWidth: 200, margin: "1em 1em 1em 1em" }}>
+    <Card
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseAway}
+      sx={{ maxWidth: 200, margin: "1em 1em 1em 1em" }}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -25,11 +39,18 @@ function PassportStamp({ park }) {
           alt={park.name}
         />
         <CardContent>
-          <Typography id="stamp-title" variant="h6" component="div">
-            {park.name}
-          </Typography>
+          {!isHovered ? (
+            <Typography id="stamp-title" variant="h6" component="div">
+              {park.name}
+            </Typography>
+          ) : (
+            <Typography id="stamp-title" variant="h6" component="div">
+              <strong>{park.name}</strong>
+            </Typography>
+          )}
         </CardContent>
       </CardActionArea>
+      <hr></hr>
       <CardActions>
         <button className="stamp-button" onClick={() => handleViewStamp(park)}>
           Log a Memory

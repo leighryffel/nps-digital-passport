@@ -47,13 +47,17 @@ function ReviewCard({ review, change, setChange, park, user }) {
 
   return (
     <>
-      <p key={id}>{text}</p>
+      <p className="review-text" key={id}>{text}</p>
       {toggleMemoryEdit ? (
         updateMemoryForm
       ) : (
-        <Button onClick={handleEditClick}>Edit Memory</Button>
+        <button className="edit-review" onClick={handleEditClick}>
+          Edit Memory
+        </button>
       )}
-      <Button onClick={handleDelete}>X</Button>
+      <button className="edit-review" onClick={handleDelete}>
+        X
+      </button>
     </>
   );
 }

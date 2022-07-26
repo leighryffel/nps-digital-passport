@@ -5,6 +5,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
+import appLogo from "../images/appLogo.png";
+import Box from "@mui/material/Box";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -16,34 +18,42 @@ function NavBar({ setUser }) {
       }
     });
   }
+
   return (
     <AppBar style={{ background: "#42234e", margin: "0em 0em 1em 0em" }}>
       <CssBaseline />
       <Toolbar>
-        <Typography variant="h4">NPS Digital Passport</Typography>
+        <img style={{ width: "2.5em" }} src={appLogo} />
+        <Typography id="nav-title" variant="h4">
+          <strong>NPS Digital Passport</strong>
+        </Typography>
         <div>
           <Link
+            id="nav-link-1"
             style={{ color: "white", margin: "5em 5em" }}
-            
             to="/"
           >
             Home
           </Link>
           <Link
+            id="nav-link-2"
             style={{ color: "white", margin: "5em 5em" }}
-           
             to="/passport"
           >
             View Passport
           </Link>
           <Link
+            id="nav-link-3"
             style={{ color: "white", margin: "5em 5em" }}
-            
             to="/profile"
           >
             Your Profile
           </Link>
-          <Button style={{ color: "white" }} onClick={handleLogoutClick}>
+          <Button
+            id="nav-link-4"
+            style={{ color: "white" }}
+            onClick={handleLogoutClick}
+          >
             Log Out
           </Button>
         </div>
