@@ -36,9 +36,7 @@ function App() {
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">
-          <UserProfile
-            user={user}
-          />
+          <UserProfile user={user} />
         </Route>
         <Route path="/mapview">
           <MapView parks={parks} />
@@ -59,10 +57,7 @@ function App() {
         </Route>
         <Route path="/">
           <div>
-            <ParksList
-              user={user}
-              parks={parks}
-            />
+            <ParksList user={user} parks={parks} />
           </div>
         </Route>
       </Switch>
