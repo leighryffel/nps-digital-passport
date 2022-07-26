@@ -32,7 +32,7 @@ function App() {
   if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
-    <div className="app">
+    <div>
       <NavBar setUser={setUser} />
       <Switch>
         <Route path="/profile">

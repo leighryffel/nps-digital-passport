@@ -110,7 +110,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
 
   return (
     <div>
-      <div className="park-list-header">
+      <div >
         <h1>View All National Parks</h1>
         <FormControl fullWidth>
           <InputLabel id="activity-select-label">Filter by Activity</InputLabel>
@@ -140,13 +140,13 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
       <div>
         <div>
           {filter === "View All" ? (
-            <div className="park-card-container">
+            <div >
               <Grid container cols={3} item spacing={10}>
                 {fullListToRender}
               </Grid>
             </div>
           ) : (
-            <div className="park-card-container">
+            <div >
               <Grid container cols={3} item spacing={10}>
                 {filteredListToRender}
               </Grid>

@@ -30,15 +30,15 @@ function UserProfile({ user }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newUserInfo),
-    })
+    });
     // .then(() => setChange(!change));
   }
 
   return (
     <div>
       <h1>Account Information</h1>
-      <div className="user-info">
-        <img className="avatar" alt="avatar" src={user.image_url} />
+      <div>
+        <img alt="avatar" src={user.image_url} />
         <ul>
           <li>Username: {user.username}</li>
           <li>Location: {user.location}</li>
@@ -50,9 +50,17 @@ function UserProfile({ user }) {
       {toggleUpdateForm ? (
         <form onSubmit={handleSubmit}>
           <label>Update Location:</label>
-          <input type="text" placeholder="I'm located in..." onChange={handleLocationChange} />
+          <input
+            type="text"
+            placeholder="I'm located in..."
+            onChange={handleLocationChange}
+          />
           <label>Update Avatar URL:</label>
-          <input type="text" placeholder="Insert URL" onChange={handleImageChange} />
+          <input
+            type="text"
+            placeholder="Insert URL"
+            onChange={handleImageChange}
+          />
           <Button type="submit">Submit Changes</Button>
         </form>
       ) : null}

@@ -26,16 +26,16 @@ function Passport({ user, selectedPark, setSelectedPark }) {
 
   return (
     <>
-      <div className="passport-header">
+      <div>
         <h1>
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Passport
         </h1>
       </div>
-      <div className="passport-title">
+      <div>
         <h2>Your Stamps</h2>
       </div>
-      <div className="stamp-list">
+      <div>
         <Grid container cols={3} item spacing={10}>
           {stampList}
         </Grid>

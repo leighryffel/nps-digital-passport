@@ -16,10 +16,9 @@ function PassportStamp({ park }) {
   const posterURL = `https://national-park-posters.com/pages/search-results-page?q=${park.name}`;
 
   return (
-    <Card className="passport-stamp-card" sx={{ maxWidth: 200 }}>
+    <Card sx={{ maxWidth: 200 }}>
       <CardActionArea>
         <CardMedia
-          className="passport-stamp-image"
           component="img"
           height="100"
           image={park.image_url}
@@ -32,18 +31,9 @@ function PassportStamp({ park }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <button
-          className="passport-stamp-button"
-          onClick={() => handleViewStamp(park)}
-        >
-          Log a Memory
-        </button>
+        <button onClick={() => handleViewStamp(park)}>Log a Memory</button>
         <br></br>
-        <button
-          className="passport-stamp-button"
-          href={posterURL}
-          target="_blank"
-        >
+        <button href={posterURL} target="_blank">
           Order a Poster
         </button>
       </CardActions>

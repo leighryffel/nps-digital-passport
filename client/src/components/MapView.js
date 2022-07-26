@@ -9,7 +9,7 @@ function MapView() {
       <Link to="/">
         <Button>Switch to List View</Button>
       </Link>
-      <div className="map-container">
+      <div>
         <iframe
           title="NPS Google Map"
           src="https://www.google.com/maps/d/embed?mid=1f4p3zPa1uU_gRnbQzMAqCZTPzD4&ehbc=2E312F"

@@ -97,7 +97,7 @@ function ParkCard({
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card className="park-view-card" sx={{ maxWidth: 400 }}>
+      <Card sx={{ maxWidth: 400 }}>
         <CardMedia
           component="img"
           alt={park.fullName}
@@ -112,22 +112,16 @@ function ParkCard({
         </CardContent>
 
         <CardActions>
-          <Button className="park-card-button" onClick={changeToggle}>
-            View Activities
-          </Button>
+          <Button onClick={changeToggle}>View Activities</Button>
           {isOnBucketList.includes(true) ? (
-            <Button className="park-card-button">On Your Bucket List!</Button>
+            <Button>On Your Bucket List!</Button>
           ) : (
-            <Button className="park-card-button" onClick={handleBucketClick}>
-              Add to Bucket List
-            </Button>
+            <Button onClick={handleBucketClick}>Add to Bucket List</Button>
           )}
           {isStamped.includes(true) ? (
-            <Button className="park-card-button">You've Visited!</Button>
+            <Button>You've Visited!</Button>
           ) : (
-            <Button className="park-card-button" onClick={handleStampClick}>
-              Stamp Passport
-            </Button>
+            <Button onClick={handleStampClick}>Stamp Passport</Button>
           )}
         </CardActions>
       </Card>
