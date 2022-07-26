@@ -97,11 +97,12 @@ function ParkCard({
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card sx={{ maxWidth: 400 }}>
+      <Card className="park-view-card" sx={{ maxWidth: 400 }}>
         <CardMedia
           component="img"
           alt={park.fullName}
           image={park.images[0].url}
+          height="250em"
         />
         <CardContent>
           <Typography variant="h5">{park.fullName}</Typography>

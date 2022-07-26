@@ -8,13 +8,9 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
-function ParksList({
-  user,
-  parks,
-  addParkToBucketList,
-  addParkToStamps,
-}) {
+function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [filter, setFilter] = useState("View All");
   const [userParks, setUserParks] = useState([]);
   const [userBucketList, setUserBucketList] = useState([]);
@@ -84,6 +80,34 @@ function ParksList({
     park.activities.some((activity) => activity["name"] === filter)
   );
 
+  const filteredListToRender = selectedParks.map((park) => (
+    <ParkCard
+      user={user}
+      park={park}
+      key={park.id}
+      addParkToBucketList={addParkToBucketList}
+      addParkToStamps={addParkToStamps}
+      userParks={userParks}
+      userBucketList={userBucketList}
+      change={change}
+      setChange={setChange}
+    />
+  ));
+
+  const fullListToRender = parks.map((park) => (
+    <ParkCard
+      user={user}
+      park={park}
+      key={park.id}
+      addParkToBucketList={addParkToBucketList}
+      addParkToStamps={addParkToStamps}
+      userParks={userParks}
+      userBucketList={userBucketList}
+      change={change}
+      setChange={setChange}
+    />
+  ));
+
   return (
     <div>
       <div className="park-list-header">
@@ -115,33 +139,15 @@ function ParksList({
       )}
       <div>
         <div>
-          {filter === "View All"
-            ? parks.map((park) => (
-                <ParkCard
-                  user={user}
-                  park={park}
-                  key={park.id}
-                  addParkToBucketList={addParkToBucketList}
-                  addParkToStamps={addParkToStamps}
-                  userParks={userParks}
-                  userBucketList={userBucketList}
-                  change={change}
-                  setChange={setChange}
-                />
-              ))
-            : selectedParks.map((park) => (
-                <ParkCard
-                  user={user}
-                  park={park}
-                  key={park.id}
-                  addParkToBucketList={addParkToBucketList}
-                  addParkToStamps={addParkToStamps}
-                  userParks={userParks}
-                  userBucketList={userBucketList}
-                  change={change}
-                  setChange={setChange}
-                />
-              ))}
+          {filter === "View All" ? (
+            <Grid container cols={3} item spacing={10}>
+              {fullListToRender}
+            </Grid>
+          ) : (
+            <Grid container cols={3} item spacing={10}>
+              {filteredListToRender}
+            </Grid>
+          )}
         </div>
       </div>
     </div>

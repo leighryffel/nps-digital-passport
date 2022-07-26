@@ -1,5 +1,16 @@
+.park-list-header {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5em;
+}
 .passport-header {
   margin-bottom: 3em;
+}
+
+.park-view-card {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 #nav-links{
@@ -59,11 +70,6 @@
   border-color: #ac5169;
 }
 
-.park-list-header {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .NavBar{
   display: inline-block;
