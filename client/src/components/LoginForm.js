@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +17,10 @@ function LoginForm({ onLogin }) {
       body: JSON.stringify({ username, password }),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => onLogin(user));
+        res
+          .json()
+          .then((user) => onLogin(user))
+          .then(history.push("/"));
       } else {
         res.json().then((err) => setErrors(err.errors));
       }
