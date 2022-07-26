@@ -51,9 +51,9 @@ function PassportReview({ user }) {
   }
 
   return (
-    <div>
+    <div style={{margin: "5em 0em 0em 2em"}}>
       <h1>{park.name}</h1>
-      <img alt={park.name} src={park.image_url} />
+      <img style={{ width: "30%"}} alt={park.name} src={park.image_url} />
       <h3>Your Memories</h3>
       {reviewList}
       <br></br>

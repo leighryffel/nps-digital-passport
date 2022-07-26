@@ -26,7 +26,7 @@ function Passport({ user, selectedPark, setSelectedPark }) {
 
   return (
     <>
-      <div>
+      <div id="passport-container" style={{margin: "5em 0em 2em 0em"}}>
         <h1>
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Passport
@@ -36,7 +36,7 @@ function Passport({ user, selectedPark, setSelectedPark }) {
         <h2>Your Stamps</h2>
       </div>
       <div>
-        <Grid container cols={3} item spacing={10}>
+        <Grid container spacing={1}>
           {stampList}
         </Grid>
       </div>

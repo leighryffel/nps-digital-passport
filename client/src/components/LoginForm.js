@@ -28,8 +28,8 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div id="login-form">
+      <h2>Login</h2>
       <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
@@ -53,7 +53,11 @@ function LoginForm({ onLogin }) {
           <button type="submit">Login</button>
           <div>
             {errors.map((err) => (
-              <p key={err}>{err}</p>
+              <p key={err}>
+                <strong>
+                  <em>{err}!</em>
+                </strong>
+              </p>
             ))}
           </div>
         </form>

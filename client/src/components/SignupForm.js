@@ -23,20 +23,18 @@ function SignupForm({ onLogin }) {
         location: location,
         image_url: avatar,
       }),
-    })
-      .then((res) => {
-        if (res.ok) {
-          res.json().then((user) => onLogin(user));
-        } else {
-          res.json().then((err) => setErrors(err.errors));
-        }
-      })
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => onLogin(user));
+      } else {
+        res.json().then((err) => setErrors(err.errors));
+      }
+    });
   }
-
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
       <div>
         <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
@@ -72,22 +70,28 @@ function SignupForm({ onLogin }) {
             id="location"
             name="location"
             value={location}
+            placeholder="New York, NY"
             onChange={(e) => setLocation(e.target.value)}
           />
           <br></br>
-          <label htmlFor="avatar">Upload a Profie Picture</label>
+          <label htmlFor="avatar">Choose an Avatar</label>
           <input
             type="test"
             id="avatar"
             name="avatar"
             value={avatar}
+            placeholder="imageURL.png"
             onChange={(e) => setAvatar(e.target.value)}
           />
           <br></br>
           <button type="submit">Sign Up</button>
           <div>
             {errors.map((err) => (
-              <p key={err}>{err}</p>
+              <p key={err}>
+                <strong>
+                  <em>{err}!</em>
+                </strong>
+              </p>
             ))}
           </div>
         </form>

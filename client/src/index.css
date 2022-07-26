@@ -1,18 +1,60 @@
-
-#login-page {
-  background-color:#feb5ba;
-  border-radius: 3% 3% 3% 3%;
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/* Entire App */
+body #login-page {
+  background-image: url(../public/background.png);
+  background-size: 100% 100%;
 }
 
 body {
-  background-image: url(../public/background.png);
-  background-size: 100%;
+  background-color: #ac5169;
 }
 
+/* Login Page */
+#login-page {
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4em;
+  padding-left: 4em;
+  padding-right: 4em;
+  padding-bottom: 4em;
+  background-color:#feb5ba;
+  border-radius: 3% 3% 3% 3%;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  flex-direction:row;
+}
+
+#login-page button {
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 1em;
+  margin-left: 1em;
+  background-color: #42234e;
+  color: white;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+#login-page input {
+  margin-bottom: 1em;
+  /* padding-left: 1em; */
+  font-family: Courier;
+}
+
+#login-page label {
+  margin-bottom: 1em;
+  padding-right: 1em;
+}
+
+.login-footer {
+  /* text-align: right; */
+  display: flex;
+  justify-content:center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Navigation Bar - Entire App Once Logged In*/
 #navigation {
   background-color: #301e4b;
   color: white;
@@ -24,131 +66,76 @@ body {
   align-items: center;
   justify-items: end;
 }
-/* 
+
+.parks-list {
+  font-family: 'Courier New', Courier, monospace;
+}
 
 .park-list-header {
+  margin-top: 3em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.park-list-controls {
+  width: 50%;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5em;
-}
-.passport-header {
-  margin-bottom: 3em;
-}
-
-.park-view-card {
+  margin-bottom: 2.5em;
+  /* background-color: #feb5ba; */
   margin-left: 1em;
   margin-right: 1em;
 }
 
-
-.logo {
-  cursor: "pointer";
+.park-list-controls button {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.passport-title{
-  margin-bottom: 5em;
-}
-.stamp-list {
-  margin-left: 5em;
+#activity-select-label {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.passport-stamp-card {
-  margin-left: 1em;
-  margin-right: 1em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  box-shadow: 1em 1em lightblue;
+#activity-item {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.passport-stamp-button {
-  background-color:aliceblue;
+#activity-select {
+  font-family: 'Courier New', Courier, monospace;}
+
+#passport-container {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.passport-stamp-image {
-  border-radius: 5%;
-}
-.app {
-  background-color: white;
+#park-text-title {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.app button {
-  background-color: #42234e;
-  color: white;
-  border-color: #42234e;
-} 
-
- .app button :hover {
-  background-color: #ac5169;
-  border-color: #ac5169;
-} 
-
- .park-list-button {
-  background-color: #42234e;
-  border-color: #42234e;
-} 
-
-.park-list-button :hover {
-  background-color: #ac5169;
-  border-color: #ac5169;
+#park-text-location {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-
-.NavBar{
-  display: inline-block;
-  text-align:center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-.navigation a {
-  color: #ac5169; 
-  background-color: white; 
-} 
-
-.park-list-card img {
-  padding-top: 0.5em;
-  width: auto;
-  height: 10em;
-  border-radius: 1%;
+#park-text-designation {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.park-list-card {
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-  margin-top: 0.2em;
-  margin-bottom: 0.2em;
+#park-list-activity {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.park-card-button {
-  margin-bottom: 0.2em;
+#park-list-activity-button {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.nav-button {
-  display: inline-block;
-  justify-content:right;
-  margin-left: 0.4em;
-  margin-right: 0.4em;
+#park-list-in-bucket-button{
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.user-info {
-  padding-top: 1em;
+#park-list-add-bucket-button {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.avatar {
-  border: 5px solid #555;
+#park-list-in-passport-button {
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.stamp-image {
-  width: 5em;
-  height: 5em;
+#park-list-add-passport-button {
+  font-family: 'Courier New', Courier, monospace;
 }
-
-.stamp-card {
-  width: 10em;
-}
-
-.park-card-container {
-  background-color: blueviolet;
-  padding-left: 5em;
-  padding-right: 5em;
-}
-*/

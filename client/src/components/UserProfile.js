@@ -35,7 +35,7 @@ function UserProfile({ user }) {
   }
 
   return (
-    <div>
+    <div style={{ margin: "5em 0em 0em 2em" }}>
       <h1>Account Information</h1>
       <div>
         <img alt="avatar" src={user.image_url} />

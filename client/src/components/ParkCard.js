@@ -19,7 +19,7 @@ function ParkCard({
   const [bucketToggle, setBucketToggle] = useState(true);
 
   const activityList = park.activities.map((activity) => (
-    <p key={activity.id}>⭐ {activity.name}</p>
+    <p id="park-list-activity" key={activity.id}>⭐ {activity.name}</p>
   ));
 
   function changeToggle() {
@@ -97,7 +97,7 @@ function ParkCard({
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card sx={{ maxWidth: 400 }}>
+      <Card sx={{ maxWidth: 400, margin: "1em 1em 1em 1em" }}>
         <CardMedia
           component="img"
           alt={park.fullName}
@@ -105,23 +105,37 @@ function ParkCard({
           height="250em"
         />
         <CardContent>
-          <Typography variant="h5">{park.fullName}</Typography>
-          <Typography>Located in: {park.states}</Typography>
-          <Typography>Designation: {park.designation}</Typography>
-          {activityToggle ? <Typography>{activityList} </Typography> : null}
+          <Typography id="park-text-title" variant="h5">
+            {park.fullName}
+          </Typography>
+          <Typography id="park-text-location">
+            Located in: {park.states}
+          </Typography>
+          <Typography id="park-text-designation">
+            Designation: {park.designation}
+          </Typography>
+          {activityToggle ? (
+            <Typography id="park-text-activites">{activityList} </Typography>
+          ) : null}
         </CardContent>
 
         <CardActions>
-          <Button onClick={changeToggle}>View Activities</Button>
+          <Button id="park-list-activity-button" onClick={changeToggle}>
+            {activityToggle ? "Hide Activities" : "View Activities"}
+          </Button>
           {isOnBucketList.includes(true) ? (
-            <Button>On Your Bucket List!</Button>
+            <Button id="park-list-in-bucket-button">On Your Bucket List!</Button>
           ) : (
-            <Button onClick={handleBucketClick}>Add to Bucket List</Button>
+            <Button id="park-list-add-bucket-button" onClick={handleBucketClick}>
+              Add to Bucket List
+            </Button>
           )}
           {isStamped.includes(true) ? (
-            <Button>You've Visited!</Button>
+            <Button id="park-list-in-passport-button">You've Visited!</Button>
           ) : (
-            <Button onClick={handleStampClick}>Stamp Passport</Button>
+            <Button id="park-list-add-passport-button" onClick={handleStampClick}>
+              Stamp Passport
+            </Button>
           )}
         </CardActions>
       </Card>

@@ -109,28 +109,32 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   ));
 
   return (
-    <div>
-      <div >
-        <h1>View All National Parks</h1>
-        <FormControl fullWidth>
-          <InputLabel id="activity-select-label">Filter by Activity</InputLabel>
-          <Select
-            labelId="activity-select-label"
-            id="activity-select"
-            value={filter}
-            label="Activity"
-            onChange={handleChange}
-          >
-            {activityArray.map((activity, index) => (
-              <MenuItem key={index} value={activity}>
-                {activity}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Link to="/mapview">
-          <Button>Switch to Map View</Button>
-        </Link>
+    <div className="parks-list">
+      <div>
+        <h1 className="park-list-header">View All National Parks</h1>
+        <div className="park-list-controls">
+          <FormControl style={{ width: "20em" }}>
+            <InputLabel id="activity-select-label">
+              Filter by Activity
+            </InputLabel>
+            <Select
+              labelId="activity-select-label"
+              id="activity-select"
+              value={filter}
+              label="Activity"
+              onChange={handleChange}
+            >
+              {activityArray.map((activity, index) => (
+                <MenuItem id="activity-item" key={index} value={activity}>
+                  {activity}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Link to="/mapview">
+            <Button>Switch to Map View</Button>
+          </Link>
+        </div>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>
@@ -140,14 +144,14 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
       <div>
         <div>
           {filter === "View All" ? (
-            <div >
-              <Grid container cols={3} item spacing={10}>
+            <div>
+              <Grid container spacing={1}>
                 {fullListToRender}
               </Grid>
             </div>
           ) : (
-            <div >
-              <Grid container cols={3} item spacing={10}>
+            <div>
+              <Grid container spacing={1}>
                 {filteredListToRender}
               </Grid>
             </div>

@@ -16,7 +16,7 @@ function PassportStamp({ park }) {
   const posterURL = `https://national-park-posters.com/pages/search-results-page?q=${park.name}`;
 
   return (
-    <Card sx={{ maxWidth: 200 }}>
+    <Card sx={{ maxWidth: 200, margin: "1em 1em 1em 1em" }}>
       <CardActionArea>
         <CardMedia
           component="img"
