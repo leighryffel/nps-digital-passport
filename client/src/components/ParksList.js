@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ParkCard from "./ParkCard";
 import { Link } from "react-router-dom";
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-} from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {

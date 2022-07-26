@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@mui/material";
 
 function UserProfile({ user }) {
   const [toggleUpdateForm, setToggleUpdateForm] = useState(false);
