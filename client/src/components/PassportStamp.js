@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function PassportStamp({ park }) {
   const history = useHistory();
