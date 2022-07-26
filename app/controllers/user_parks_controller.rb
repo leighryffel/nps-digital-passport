@@ -1,6 +1,5 @@
 class UserParksController < ApplicationController
 
-  skip_before_action :authorize, only: :index
   # READ /user_parks
   def index
     user_parks = UserPark.all

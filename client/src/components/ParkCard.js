@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
@@ -13,6 +13,8 @@ function ParkCard({
   setChange,
   userParks,
   userBucketList,
+  setBucketCount,
+  setStampCount,
 }) {
   const [activityToggle, setActivityToggle] = useState(false);
   const [stampToggle, setStampToggle] = useState(true);
@@ -75,11 +77,19 @@ function ParkCard({
       .then(setStampToggle(!stampToggle));
   }
 
-  const isStamped = userParks.map((user_park) =>
+  const filteredUserParks = userParks.filter(
+    (park) => park.user.username === user.username
+  );
+
+  const filteredBucketParks = userBucketList.filter(
+    (park) => park.user.username === user.username
+  );
+
+  const isStamped = filteredUserParks.map((user_park) =>
     user_park.name === park.fullName ? true : false
   );
 
-  const isOnBucketList = userBucketList.map((bucket_list_park) =>
+  const isOnBucketList = filteredBucketParks.map((bucket_list_park) =>
     bucket_list_park.name === park.fullName ? true : false
   );
 

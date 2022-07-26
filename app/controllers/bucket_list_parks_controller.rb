@@ -1,6 +1,4 @@
 class BucketListParksController < ApplicationController
-
-  skip_before_action :authorize
   
   # READ /bucket_list_parks
   def index

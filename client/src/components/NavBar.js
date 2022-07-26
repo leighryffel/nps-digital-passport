@@ -21,7 +21,7 @@ function NavBar({ setUser }) {
         <Button className="nav-button">View Passport</Button>
       </Link>
       <Link to="/profile">
-        <Button className="nav-button">Update Profile</Button>
+        <Button className="nav-button">Your Profile</Button>
       </Link>
       <Button className="nav-button" onClick={handleLogoutClick}>
         Log Out

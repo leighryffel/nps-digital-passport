@@ -9,7 +9,16 @@ import {
   Button,
 } from "@mui/material";
 
-function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
+function ParksList({
+  user,
+  parks,
+  addParkToBucketList,
+  addParkToStamps,
+  bucketCount,
+  setBucketCount,
+  stampCount,
+  setStampCount,
+}) {
   const [filter, setFilter] = useState("View All");
   const [userParks, setUserParks] = useState([]);
   const [userBucketList, setUserBucketList] = useState([]);
@@ -122,6 +131,8 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
                   userBucketList={userBucketList}
                   change={change}
                   setChange={setChange}
+                  setBucketCount={setBucketCount}
+                  setStampCount={setStampCount}
                 />
               ))
             : selectedParks.map((park) => (
