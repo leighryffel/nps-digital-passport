@@ -106,14 +106,31 @@ function ParkCard({
           height="250em"
         />
         <CardContent>
-          <Typography id="park-text-title" variant="h5">
-            {park.fullName}
-          </Typography>
+          {isStamped.includes(true) ? (
+            <>
+              <Typography id="park-text-title" variant="h5">
+                {park.fullName}
+              </Typography>
+              <img
+                alt="park stamp"
+                style={{ float: "right" }}
+                width="50px"
+                src="https://i0.wp.com/americasnationalparks.org/wp-content/uploads/2019/10/Passport_Cancellation_Generic.jpg?resize=1000%2C600&ssl=1"
+              />{" "}
+            </>
+          ) : (
+            <Typography id="park-text-title" variant="h5">
+              {park.fullName}
+            </Typography>
+          )}
           <Typography id="park-text-location">
-            Located in: {park.states}
+            <strong>Located in:</strong> {park.states}
           </Typography>
           <Typography id="park-text-designation">
-            Designation: {park.designation}
+            <strong>Designation:</strong> {park.designation}
+          </Typography>
+          <Typography id="park-text-designation">
+            <strong>Description:</strong> {park.description.slice(0, 200)}...
           </Typography>
           {activityToggle ? <div>{activityList} </div> : null}
         </CardContent>
