@@ -9,6 +9,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [userParks, setUserParks] = useState([]);
   const [userBucketList, setUserBucketList] = useState([]);
   const [change, setChange] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("/user_parks")
@@ -70,7 +71,9 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     "Wildlife Watching",
   ];
 
-  const selectedParks = parks.filter((park) =>
+  const searchedParks = parks.filter((park) => park.fullName.includes(search));
+
+  const selectedParks = searchedParks.filter((park) =>
     park.activities.some((activity) => activity["name"] === filter)
   );
 
@@ -88,7 +91,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     />
   ));
 
-  const fullListToRender = parks.map((park) => (
+  const fullListToRender = searchedParks.map((park) => (
     <ParkCard
       user={user}
       park={park}
@@ -105,28 +108,42 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   return (
     <div className="parks-list">
       <div className="park-list-controls">
-        <h1>View All National Parks</h1>
-        <FormControl style={{ width: "20em" }}>
-          <InputLabel id="activity-select-label">Filter</InputLabel>
-          <Select
-            labelId="activity-select-label"
-            id="activity-select"
-            value={filter}
-            label="Activity"
-            onChange={handleChange}
-          >
-            {activityArray.map((activity, index) => (
-              <MenuItem id="activity-item" key={index} value={activity}>
-                {activity}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Link to="/mapview">
-          <button className="toggle-map-view">
-            <strong>Switch to Map View</strong>
-          </button>
-        </Link>
+        <h3 className="app-instructions-header">
+          View All National Parks! Search for a park below using the activity
+          drop down or search bar. Add a park to your Bucket List or stamp parks
+          you've visited to add them to your passport.
+        </h3>
+        <div className="park-list-togglers">
+          <FormControl style={{ width: "20em" }}>
+            <InputLabel id="activity-select-label">Filter</InputLabel>
+            <Select
+              labelId="activity-select-label"
+              id="activity-select"
+              value={filter}
+              label="Activity"
+              onChange={handleChange}
+            >
+              {activityArray.map((activity, index) => (
+                <MenuItem id="activity-item" key={index} value={activity}>
+                  {activity}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <form className="search-bar">
+            <input
+              id="search-bar"
+              placeholder="Search by name..."
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+          <Link to="/mapview">
+            <button className="toggle-map-view">
+              <strong>Switch to Map View</strong>
+            </button>
+          </Link>
+        </div>
       </div>
       {filter === "View All" ? (
         <h3>All Parks</h3>

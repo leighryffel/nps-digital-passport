@@ -44,22 +44,12 @@ function PassportStamp({ park }) {
               <Typography id="stamp-title" variant="h6" component="div">
                 {park.name}
               </Typography>
-              {/* <img
-                style={{ float: "right" }}
-                width="50px"
-                src="https://i0.wp.com/americasnationalparks.org/wp-content/uploads/2019/10/Passport_Cancellation_Generic.jpg?resize=1000%2C600&ssl=1"
-              /> */}
             </>
           ) : (
             <>
               <Typography id="stamp-title" variant="h6" component="div">
                 <strong>{park.name}</strong>
               </Typography>
-              {/* <img
-                style={{ float: "right" }}
-                width="50px"
-                src="https://i0.wp.com/americasnationalparks.org/wp-content/uploads/2019/10/Passport_Cancellation_Generic.jpg?resize=1000%2C600&ssl=1"
-              /> */}
             </>
           )}
         </CardContent>

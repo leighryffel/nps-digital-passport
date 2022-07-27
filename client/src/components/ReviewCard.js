@@ -8,8 +8,8 @@ function ReviewCard({ review, change, setChange, park, user }) {
   const updateMemoryForm = (
     <form>
       <textarea
-        rows="4"
-        cols="25"
+        id="edit-review-text-area"
+        rows="5"
         placeholder={text}
         onChange={(e) => setEditText(e.target.value)}
       ></textarea>

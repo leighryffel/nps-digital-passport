@@ -141,10 +141,10 @@ body .update-profile{
   margin-top: 5em;
   font-family: 'Courier New', Courier, monospace;
   /* width: 50%; */
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 2.5em;
   /* margin-left: 1em; */
-  margin-right: 1em;
+  /* margin-right: 1em; */
   height: 4em;
 }
 
@@ -154,6 +154,16 @@ body .update-profile{
   margin-right: 1em;
   margin-left: 1em;
   height: 4em;
+}
+
+.park-list-togglers {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar input {
+  font-family: 'Courier New', Courier, monospace;
+  height: 50px;
 }
 
 #activity-select-label {
@@ -241,4 +251,48 @@ body .update-profile{
   margin-bottom: 1em;
   padding: 0.4em 0.4em 0.4em 0.4em;
   margin-right: 0.5em;
+}
+
+#park-stamp-parent{
+  margin: 1rem;
+  padding: 2rem 2rem;
+}
+
+#park-stamp-child-1 {
+  display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align:top;
+  width: 50%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#park-stamp-child-2 {
+  display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align: top;
+  width: 50%;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#review-text-area {
+  width: 100%;
+  columns: 50;
+}
+
+#edit-review-text-area{
+  width: 100%;
+  columns: 50;
+}
+
+#search-bar {
+  margin-left: 1em;
+  width: 25em;
+  height: 4em;
+}
+
+.app-instructions-header {
+  background-color: #feb5ba;
+  padding: 0.3em 0.3em 0.3em 0.3em;
+  border-radius: 2% 2% 2% 2%;
+  margin-right: 1em;
 }

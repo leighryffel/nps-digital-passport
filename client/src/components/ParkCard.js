@@ -98,7 +98,7 @@ function ParkCard({
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card sx={{ maxWidth: 400, margin: "1em 1em 1em 1em" }}>
+      <Card sx={{ maxWidth: 450, margin: "1em 1em 1em 1em" }}>
         <CardMedia
           component="img"
           alt={park.fullName}
