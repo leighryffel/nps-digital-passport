@@ -10,6 +10,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [userBucketList, setUserBucketList] = useState([]);
   const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
+  const [mapView, toggleMapView] = useState(false);
 
   useEffect(() => {
     fetch("/user_parks")
@@ -26,6 +27,9 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   function handleChange(e) {
     setFilter(e.target.value);
   }
+
+  const overviewText =
+    "Welcome to the National Parks Digital Passport App! Search for a park below using the activity drop down menu or search bar. Add a park to your Bucket List or stamp parks you've visited to add them to your passport.";
 
   const activityArray = [
     "View All",
@@ -105,14 +109,14 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     />
   ));
 
+  function handleMapClick() {
+    console.log("View Map!");
+  }
+
   return (
     <div className="parks-list">
       <div className="park-list-controls">
-        <h3 className="app-instructions-header">
-          View All National Parks! Search for a park below using the activity
-          drop down or search bar. Add a park to your Bucket List or stamp parks
-          you've visited to add them to your passport.
-        </h3>
+        <h3 className="app-instructions-header">{overviewText}</h3>
         <div className="park-list-togglers">
           <FormControl style={{ width: "20em" }}>
             <InputLabel id="activity-select-label">Filter</InputLabel>
@@ -139,7 +143,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
             />
           </form>
           <Link to="/mapview">
-            <button className="toggle-map-view">
+            <button onClick={handleMapClick} className="toggle-map-view">
               <strong>Switch to Map View</strong>
             </button>
           </Link>
@@ -151,21 +155,19 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
         <h3>Parks with {filter}</h3>
       )}
       <div>
-        <div>
-          {filter === "View All" ? (
-            <div>
-              <Grid container spacing={1}>
-                {fullListToRender}
-              </Grid>
-            </div>
-          ) : (
-            <div>
-              <Grid container spacing={1}>
-                {filteredListToRender}
-              </Grid>
-            </div>
-          )}
-        </div>
+        {filter === "View All" ? (
+          <div>
+            <Grid container spacing={1}>
+              {fullListToRender}
+            </Grid>
+          </div>
+        ) : (
+          <div>
+            <Grid container spacing={1}>
+              {filteredListToRender}
+            </Grid>
+          </div>
+        )}
       </div>
     </div>
   );

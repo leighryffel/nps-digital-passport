@@ -32,20 +32,20 @@ function LoginForm({ onLogin }) {
       <h2>Login</h2>
       <div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="login-username"
             name="username"
+            placeholder="Enter username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <br></br>
-          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="login-password"
             name="password"
+            placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

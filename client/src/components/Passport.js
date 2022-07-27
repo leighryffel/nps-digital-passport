@@ -24,13 +24,22 @@ function Passport({ user, selectedPark, setSelectedPark }) {
     />
   ));
 
+  const image = (
+    <img
+      alt="park stamp"
+      width="55px"
+      src="https://i0.wp.com/americasnationalparks.org/wp-content/uploads/2019/10/Passport_Cancellation_Generic.jpg?resize=1000%2C600&ssl=1"
+    />
+  );
+
   return (
     <>
-      <div id="passport-container" style={{ margin: "5em 0em 2em 0em" }}>
+      <div id="passport-container" style={{ margin: "5em 0em 1em 1em" }}>
         <h1>
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
-          Passport Stamps
+          Stamps {image}
         </h1>
+        <h4>{user.stamps_count} parks visited! Ready for your next trip?</h4>
       </div>
       <div>
         <Grid container spacing={1}>

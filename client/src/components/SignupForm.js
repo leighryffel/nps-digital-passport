@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Container } from "react-bootstrap";
 
 function SignupForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -36,7 +35,7 @@ function SignupForm({ onLogin }) {
     <div>
       <h2>Sign Up</h2>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form id="signup-form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -74,7 +73,7 @@ function SignupForm({ onLogin }) {
             onChange={(e) => setLocation(e.target.value)}
           />
           <br></br>
-          <label htmlFor="avatar">Choose an Avatar</label>
+          <label htmlFor="avatar">Upload an Avatar</label>
           <input
             type="test"
             id="avatar"

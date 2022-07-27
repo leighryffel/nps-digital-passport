@@ -98,7 +98,7 @@ function ParkCard({
     park.fullName === "National Park of American Samoa"
   ) {
     return (
-      <Card sx={{ maxWidth: 450, margin: "1em 1em 1em 1em" }}>
+      <Card id="park-browser-card">
         <CardMedia
           component="img"
           alt={park.fullName}
@@ -132,9 +132,7 @@ function ParkCard({
           <Typography id="park-text-designation">
             <strong>Description:</strong> {park.description.slice(0, 200)}...
           </Typography>
-          {activityToggle ? <div>{activityList} </div> : null}
         </CardContent>
-
         <CardActions>
           <button id="park-list-activity-button" onClick={changeToggle}>
             {activityToggle ? "Hide Activities" : "View Activities"}
@@ -162,6 +160,9 @@ function ParkCard({
             </button>
           )}
         </CardActions>
+        <CardContent>
+          {activityToggle ? <div>{activityList} </div> : null}
+        </CardContent>
       </Card>
     );
   }

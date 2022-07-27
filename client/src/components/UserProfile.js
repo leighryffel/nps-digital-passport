@@ -18,10 +18,30 @@ function UserProfile({ user }) {
   }
 
   function handleSubmit(e) {
-    const newUserInfo = {
-      location: location,
-      image_url: imageUrl,
-    };
+    // e.preventDefault();
+    let newUserInfo = {};
+    if (imageUrl === "") {
+      newUserInfo = {
+        location: location,
+        image_url: user.image_url,
+      };
+    } else if (location === "") {
+      newUserInfo = {
+        location: user.location,
+        image_url: imageUrl,
+      };
+    } else if (location === "" && imageUrl === "") {
+      newUserInfo = {
+        location: user.location,
+        image_url: user.image_url,
+      };
+    } else {
+      newUserInfo = {
+        location: location,
+        image_url: imageUrl,
+      };
+    }
+    console.log(newUserInfo);
     fetch(`/users/${user.id}`, {
       method: "PATCH",
       headers: {
@@ -35,7 +55,7 @@ function UserProfile({ user }) {
     <div id="user-profile">
       <h1>Account Information</h1>
       <div id="user-information">
-        <img alt="avatar" src={user.image_url} />
+        <img id="user-avatar" alt="avatar" src={user.image_url} />
         <ul>
           <li>
             <strong>Username:</strong> {user.username}
@@ -47,7 +67,8 @@ function UserProfile({ user }) {
             <strong>Bucket List Parks:</strong> {user.bucket_count}
           </li>
           <li>
-            <strong>Number of Parks Visited:</strong> {user.stamps_count} / 63 parks!
+            <strong>Number of Parks Visited:</strong> {user.stamps_count} / 63
+            parks!
           </li>
         </ul>
       </div>
@@ -63,6 +84,7 @@ function UserProfile({ user }) {
               placeholder="I'm located in..."
               onChange={handleLocationChange}
             />
+            <br></br>
             <label>
               <strong>Update Avatar URL:</strong>
             </label>
@@ -71,7 +93,9 @@ function UserProfile({ user }) {
               placeholder="Insert URL"
               onChange={handleImageChange}
             />
-            <button id="submit-profile-changes" type="submit">Submit Changes</button>
+            <button id="submit-profile-changes" type="submit">
+              Submit Changes
+            </button>
           </form>
         ) : null}
       </div>

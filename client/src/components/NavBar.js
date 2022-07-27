@@ -32,7 +32,7 @@ function NavBar({ setUser }) {
             style={{ color: "white", margin: "5em 5em" }}
             to="/"
           >
-            Home
+            Parks Browser
           </Link>
           <Link
             id="nav-link-2"
