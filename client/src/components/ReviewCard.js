@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@mui/material";
 
 function ReviewCard({ review, change, setChange, park, user }) {
   const [toggleMemoryEdit, setToggleMemoryEdit] = useState(false);
@@ -15,7 +14,9 @@ function ReviewCard({ review, change, setChange, park, user }) {
         onChange={(e) => setEditText(e.target.value)}
       ></textarea>
       <br></br>
-      <Button onClick={handleEditSubmit}>Update Your Memory</Button>
+      <button className="edit-review" onClick={handleEditSubmit}>
+        Update Your Memory
+      </button>
     </form>
   );
 
@@ -47,7 +48,9 @@ function ReviewCard({ review, change, setChange, park, user }) {
 
   return (
     <>
-      <p className="review-text" key={id}>{text}</p>
+      <p className="review-text" key={id}>
+        {text}
+      </p>
       {toggleMemoryEdit ? (
         updateMemoryForm
       ) : (
