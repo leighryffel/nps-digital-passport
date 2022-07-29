@@ -17,10 +17,15 @@ function UserProfile({ user }) {
     setImageUrl(e.target.value);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit() {
     // e.preventDefault();
     let newUserInfo = {};
-    if (imageUrl === "") {
+    if (imageUrl === "" && location === "") {
+      newUserInfo = {
+        location: user.location,
+        image_url: user.image_url,
+      };
+    } else if (imageUrl === "") {
       newUserInfo = {
         location: location,
         image_url: user.image_url,
@@ -29,11 +34,6 @@ function UserProfile({ user }) {
       newUserInfo = {
         location: user.location,
         image_url: imageUrl,
-      };
-    } else if (location === "" && imageUrl === "") {
-      newUserInfo = {
-        location: user.location,
-        image_url: user.image_url,
       };
     } else {
       newUserInfo = {

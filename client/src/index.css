@@ -29,7 +29,7 @@ body #user-information {
   width: 250px;
 }
 
-body .update-profile{
+body .update-profile {
   font-family: 'Courier New', Courier, monospace;
   margin-left: 1em;
   margin-right: 1em;
@@ -68,14 +68,14 @@ body .update-profile{
   padding-left: 4em;
   padding-right: 4em;
   padding-bottom: 4em;
-  background-color:#feb5ba;
+  background-color: #feb5ba;
   border-radius: 3% 3% 3% 3%;
   width: 75%;
   justify-content: center;
   align-items: center;
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
-  flex-direction:row;
+  flex-direction: row;
 }
 
 #login-page button {
@@ -101,15 +101,15 @@ body .update-profile{
 .login-footer {
   /* text-align: right; */
   display: flex;
-  justify-content:center;
+  justify-content: center;
   font-family: 'Courier New', Courier, monospace;
 }
 
-#login-form input{
+#login-form input {
   height: 2em;
 }
 
-#signup-form input{
+#signup-form input {
   height: 2em;
 }
 
@@ -126,7 +126,7 @@ body .update-profile{
   /* justify-items: end; */
 }
 
-#nav-title{
+#nav-title {
   margin-left: 0.5em;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -134,6 +134,7 @@ body .update-profile{
 #nav-link-1 {
   font-family: 'Courier New', Courier, monospace;
 }
+
 #nav-link-2 {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -151,7 +152,7 @@ body .update-profile{
   margin-left: 1em;
 }
 
-#park-browser-card{
+#park-browser-card {
   width: 18%;
   margin: 0.5em 0.5em 0.5em 0.5em;
 }
@@ -173,10 +174,11 @@ body .update-profile{
 }
 
 .park-list-togglers {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .search-bar input {
   font-family: 'Courier New', Courier, monospace;
   height: 50px;
@@ -191,7 +193,8 @@ body .update-profile{
 }
 
 #activity-select {
-  font-family: 'Courier New', Courier, monospace;}
+  font-family: 'Courier New', Courier, monospace;
+}
 
 #passport-container {
   font-family: 'Courier New', Courier, monospace;
@@ -217,7 +220,7 @@ body .update-profile{
   font-family: 'Courier New', Courier, monospace;
 }
 
-#park-list-in-bucket-button{
+#park-list-in-bucket-button {
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -237,7 +240,7 @@ body .update-profile{
   font-family: 'Courier New', Courier, monospace;
 }
 
-.stamp-button{
+.stamp-button {
   font-family: 'Courier New', Courier, monospace;
   margin-left: 0.3em;
   margin-right: 0.3em;
@@ -269,7 +272,7 @@ body .update-profile{
   margin-right: 0.5em;
 }
 
-#park-stamp-parent{
+#park-stamp-parent {
   margin: 1rem;
   padding: 2rem 2rem;
 }
@@ -277,7 +280,7 @@ body .update-profile{
 #park-stamp-child-1 {
   display: inline-block;
   padding: 1rem 1rem;
-  vertical-align:top;
+  vertical-align: top;
   width: 50%;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -295,7 +298,7 @@ body .update-profile{
   columns: 50;
 }
 
-#edit-review-text-area{
+#edit-review-text-area {
   width: 100%;
   columns: 50;
 }
