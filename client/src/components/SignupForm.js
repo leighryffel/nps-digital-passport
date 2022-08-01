@@ -1,26 +1,26 @@
 import React, { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function SignupForm({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [location, setLocation] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
     fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        password: password,
-        password_confirmation: passwordConfirmation,
-        location: location,
-        image_url: avatar,
+        username: data.get("username"),
+        password: data.get("password"),
+        location: data.get("location"),
+        image_url: data.get("avatar"),
       }),
     }).then((res) => {
       if (res.ok) {
@@ -32,70 +32,83 @@ function SignupForm({ onLogin }) {
   }
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <div>
-        <form id="signup-form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="signup-username"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br></br>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="signup-password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br></br>
-          <label htmlFor="password-confirmation">Confirm your password:</label>
-          <input
-            type="password"
-            id="password-confirmation"
-            name="password-confirmation"
-            value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
-          <br></br>
-          <label htmlFor="location">Where are you located?</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={location}
-            placeholder="New York, NY"
-            onChange={(e) => setLocation(e.target.value)}
-          />
-          <br></br>
-          <label htmlFor="avatar">Upload an Avatar</label>
-          <input
-            type="test"
-            id="avatar"
-            name="avatar"
-            value={avatar}
-            placeholder="imageURL.png"
-            onChange={(e) => setAvatar(e.target.value)}
-          />
-          <br></br>
-          <button type="submit">Sign Up</button>
-          <div>
-            {errors.map((err) => (
-              <p key={err}>
-                <strong>
-                  <em>{err}!</em>
-                </strong>
-              </p>
-            ))}
-          </div>
-        </form>
-      </div>
-    </div>
+    <Box
+      sx={{
+        my: 8,
+        mx: 4,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
+      <Typography component="h1" variant="h5">
+        Create an Account
+      </Typography>
+      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="username"
+          label="Username"
+          name="username"
+          autoComplete="username"
+          autoFocus
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password-confirm"
+          label="Password Confirmation"
+          type="password"
+          id="password-confirmation"
+          autoComplete="password-confirmation"
+        />
+        <TextField
+          margin="normal"
+          fullWidth
+          name="location"
+          label="Where are you located?"
+          id="location"
+          autoComplete="location"
+        />
+        <TextField
+          margin="normal"
+          fullWidth
+          name="avatar"
+          label="Upload a Profile Picture"
+          id="avatar"
+          autoComplete="avatar"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Create Account
+        </Button>
+        <div>
+          {errors.map((err) => (
+            <Typography align="center" variant="h6" key={err}>
+              <strong>{err}!</strong>
+            </Typography>
+          ))}
+        </div>
+      </Box>
+    </Box>
   );
 }
 

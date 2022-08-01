@@ -29,7 +29,9 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  if (!user) return <LoginPage onLogin={setUser} />;
+  let imgNum = Math.floor(Math.random() * 12);
+
+  if (!user) return <LoginPage onLogin={setUser} imgNum={imgNum} />;
 
   return (
     <div>

@@ -1,13 +1,12 @@
 /* Entire App */
-body #login-page {
-  background-image: url(../public/background.png);
-  background-size: 100% 100%;
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
 body #user-profile {
   background-color: #ac5169;
   margin: 6em 5em 5em 2em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 5% 5% 5% 5%;
   width: 50%;
 }
@@ -22,6 +21,10 @@ body #user-information {
   width: 60%;
   border-radius: 5% 5% 5% 5%;
   margin-left: 1em;
+}
+
+#login-page-header{
+  font-family: 'Montserrat', sans-serif;
 }
 
 #user-avatar {

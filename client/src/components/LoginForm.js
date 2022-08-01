@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function LoginForm({ onLogin }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
     fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({
+        username: data.get("username"),
+        password: data.get("password"),
+      }),
     }).then((res) => {
       if (res.ok) {
         res
@@ -28,41 +35,57 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <div id="login-form">
-      <h2>Login</h2>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            id="login-username"
-            name="username"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br></br>
-          <input
-            type="password"
-            id="login-password"
-            name="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br></br>
-          <button type="submit">Login</button>
-          <div>
-            {errors.map((err) => (
-              <p key={err}>
-                <strong>
-                  <em>{err}!</em>
-                </strong>
-              </p>
-            ))}
-          </div>
-        </form>
-      </div>
-    </div>
+    <Box
+      sx={{
+        my: 8,
+        mx: 4,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
+      <Typography component="h1" variant="h5">
+        Sign in
+      </Typography>
+      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="username"
+          label="Username"
+          name="username"
+          autoComplete="username"
+          autoFocus
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Sign In
+        </Button>
+        <div>
+          {errors.map((err) => (
+            <Typography align="center" variant="h6" key={err}>
+              <strong>{err}!</strong>
+            </Typography>
+          ))}
+        </div>
+      </Box>
+    </Box>
   );
 }
 
