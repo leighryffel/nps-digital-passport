@@ -1,6 +1,12 @@
-/* Entire App */
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+.input-text-field {
+  color:#42234e;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
 }
 
 body #user-profile {
@@ -12,7 +18,7 @@ body #user-profile {
 }
 
 body #user-profile h1 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 1em;
 }
 
@@ -33,20 +39,20 @@ body #user-information {
 }
 
 body .update-profile {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 1em;
   margin-right: 1em;
   margin-bottom: 1em;
 }
 
 .update-profile button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 1em;
   height: 3em;
 }
 
 .update-profile input {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 1em;
   height: 3em;
 }
@@ -56,7 +62,7 @@ body .update-profile {
 }
 
 .update-profile label {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 1em;
   padding-right: 1em;
   padding-left: 1em;
@@ -76,13 +82,13 @@ body .update-profile {
   width: 75%;
   justify-content: center;
   align-items: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   flex-direction: row;
 }
 
 #login-page button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-top: 1em;
   margin-left: 1em;
   background-color: #42234e;
@@ -92,8 +98,7 @@ body .update-profile {
 
 #login-page input {
   margin-bottom: 1em;
-  /* padding-left: 1em; */
-  font-family: Courier;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #login-page label {
@@ -102,10 +107,9 @@ body .update-profile {
 }
 
 .login-footer {
-  /* text-align: right; */
   display: flex;
   justify-content: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #login-form input {
@@ -131,45 +135,45 @@ body .update-profile {
 
 #nav-title {
   margin-left: 0.5em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #nav-link-1 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #nav-link-2 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #nav-link-3 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #nav-link-4 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .parks-list {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 1em;
 }
 
 #park-browser-card {
-  width: 18%;
+  width: 32%;
   margin: 0.5em 0.5em 0.5em 0.5em;
 }
 
 
 .park-list-controls {
   margin-top: 5em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 2.5em;
   height: 4em;
 }
 
 .park-list-controls button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   padding: 1em;
   margin-right: 1em;
   margin-left: 1em;
@@ -183,93 +187,93 @@ body .update-profile {
 }
 
 .search-bar input {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   height: 50px;
 }
 
 #activity-select-label {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #activity-item {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #activity-select {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #passport-container {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-text-title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-text-location {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-text-designation {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-activity {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-activity-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-in-bucket-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-add-bucket-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-in-passport-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-list-add-passport-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #stamp-title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .stamp-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-left: 0.3em;
   margin-right: 0.3em;
 }
 
 #toggle-list-view {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   padding: 1em;
   margin-bottom: 1em;
 }
 
 #map-header {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .review-text {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #review-button {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   padding: 0.4em 0.4em 0.4em 0.4em;
 }
 
 .edit-review {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 1em;
   padding: 0.4em 0.4em 0.4em 0.4em;
   margin-right: 0.5em;
@@ -285,7 +289,7 @@ body .update-profile {
   padding: 1rem 1rem;
   vertical-align: top;
   width: 50%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #park-stamp-child-2 {
@@ -293,7 +297,7 @@ body .update-profile {
   padding: 1rem 1rem;
   vertical-align: top;
   width: 50%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #review-text-area {

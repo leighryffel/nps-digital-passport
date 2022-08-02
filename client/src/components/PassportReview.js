@@ -34,19 +34,21 @@ function PassportReview({ user }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user_park_id: park.id,
-        user_id: user.id,
-        text: text,
-      }),
-    })
-      .then(() => setText(""))
-      .then(() => setChange(!change));
+    if (text !== "") {
+      fetch("/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_park_id: park.id,
+          user_id: user.id,
+          text: text,
+        }),
+      })
+        .then(() => setText(""))
+        .then(() => setChange(!change));
+    }
   }
 
   return (

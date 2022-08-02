@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import Button from "@mui/material/Button";
@@ -7,8 +7,9 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-function LoginPage({ onLogin, imgNum }) {
+function LoginPage({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
+  const [imgNum, setImgNum] = useState(0);
 
   const imgArray = [
     "https://media.cntraveler.com/photos/5ea78aee149c56000808d317/master/w_2580%2Cc_limit/Crater-Lake-National-Park-GettyImages-1158150928.jpg",
@@ -24,6 +25,10 @@ function LoginPage({ onLogin, imgNum }) {
     "https://media.cntraveler.com/photos/5949ac0584b37669f9731899/master/w_2580%2Cc_limit/zion-GettyImages-514653655.jpg",
     "https://media.cntraveler.com/photos/5949ac021bb4381cb15c1b87/master/w_1920%2Cc_limit/Sequoia-GettyImages-131984902.jpg",
   ];
+
+  useEffect(() => {
+    setImgNum((Math.floor(Math.random() * 12)));
+  }, []);
 
   return (
     <div>

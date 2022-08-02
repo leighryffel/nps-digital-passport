@@ -47,6 +47,7 @@ function SignupForm({ onLogin }) {
       </Typography>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextField
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -57,6 +58,7 @@ function SignupForm({ onLogin }) {
           autoFocus
         />
         <TextField
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -67,6 +69,7 @@ function SignupForm({ onLogin }) {
           autoComplete="current-password"
         />
         <TextField
+          variant="filled"
           margin="normal"
           required
           fullWidth
@@ -77,6 +80,7 @@ function SignupForm({ onLogin }) {
           autoComplete="password-confirmation"
         />
         <TextField
+          variant="filled"
           margin="normal"
           fullWidth
           name="location"
@@ -85,6 +89,7 @@ function SignupForm({ onLogin }) {
           autoComplete="location"
         />
         <TextField
+          variant="filled"
           margin="normal"
           fullWidth
           name="avatar"

@@ -29,9 +29,9 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  let imgNum = Math.floor(Math.random() * 12);
+  // setTimeout that runs 3 seconds
 
-  if (!user) return <LoginPage onLogin={setUser} imgNum={imgNum} />;
+  if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
     <div>

@@ -50,6 +50,9 @@ function LoginForm({ onLogin }) {
       </Typography>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextField
+          variant="filled"
+          style={{ borderRadius: "50px" }}
+          className="input-text-field"
           margin="normal"
           required
           fullWidth
@@ -60,6 +63,7 @@ function LoginForm({ onLogin }) {
           autoFocus
         />
         <TextField
+          variant="filled"
           margin="normal"
           required
           fullWidth

@@ -114,7 +114,7 @@ function ParkCard({
               <img
                 alt="park stamp"
                 style={{ float: "right" }}
-                width="50px"
+                width="75px"
                 src="https://i0.wp.com/americasnationalparks.org/wp-content/uploads/2019/10/Passport_Cancellation_Generic.jpg?resize=1000%2C600&ssl=1"
               />{" "}
             </>
