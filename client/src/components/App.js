@@ -29,7 +29,6 @@ function App() {
       .then((data) => setParks(data.data));
   }, []);
 
-  // setTimeout that runs 3 seconds
 
   if (!user) return <LoginPage onLogin={setUser} />;
 

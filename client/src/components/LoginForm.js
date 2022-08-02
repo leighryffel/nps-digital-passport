@@ -45,8 +45,8 @@ function LoginForm({ onLogin }) {
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
-      <Typography component="h1" variant="h5">
-        Sign in
+      <Typography id="sign-in-header" component="h1" variant="h5">
+        Sign In
       </Typography>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextField

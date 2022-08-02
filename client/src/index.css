@@ -33,6 +33,14 @@ body #user-information {
   font-family: 'Montserrat', sans-serif;
 }
 
+#sign-in-header{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#sign-up-header {
+  font-family: 'Montserrat', sans-serif;
+}
+
 #user-avatar {
   margin-top: 1em;
   width: 250px;

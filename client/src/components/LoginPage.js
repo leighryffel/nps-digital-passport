@@ -27,7 +27,7 @@ function LoginPage({ onLogin }) {
   ];
 
   useEffect(() => {
-    setImgNum((Math.floor(Math.random() * 12)));
+    setImgNum(Math.floor(Math.random() * 12));
   }, []);
 
   return (
@@ -55,29 +55,17 @@ function LoginPage({ onLogin }) {
             <Typography id="login-page-header" variant="h4" sx={{ mt: 5 }}>
               National Parks Digital Passport
             </Typography>
-          </Grid>
-          {showLogin ? (
-            <LoginForm onLogin={onLogin} />
-          ) : (
-            <SignupForm onLogin={onLogin} />
-          )}
-          <Grid item align="center">
+            {showLogin ? (
+              <LoginForm onLogin={onLogin} />
+            ) : (
+              <SignupForm onLogin={onLogin} />
+            )}
             <Button onClick={() => setShowLogin(!showLogin)}>
               {showLogin
                 ? "Don't have an account? Sign Up"
                 : "Have an account? Sign In"}
             </Button>
           </Grid>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            align="center"
-            sx={{ mt: 5 }}
-          >
-            {"Copyright © Leigh Ryffel "}
-            {new Date().getFullYear()}
-            {"."}
-          </Typography>
         </Grid>
       </Grid>
     </div>

@@ -42,7 +42,7 @@ function SignupForm({ onLogin }) {
       }}
     >
       <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
-      <Typography component="h1" variant="h5">
+      <Typography id="sign-up-header" component="h1" variant="h5">
         Create an Account
       </Typography>
       <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
