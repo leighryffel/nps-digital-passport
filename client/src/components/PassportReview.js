@@ -56,26 +56,30 @@ function PassportReview({ user }) {
       <div id="park-stamp-child-1">
         <h1 className="review-text">{park.name}</h1>
         <img style={{ width: "100%" }} alt={park.name} src={park.image_url} />
-        <h3 className="review-text">Your Memories</h3>
-        {reviewList}
-        <form>
-          <textarea
-            id="review-text-area"
-            rows={5}
-            placeholder={placeholder}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
-          <br></br>
-          <button id="review-button" onClick={handleSubmit}>
-            Submit Your Memory
-          </button>
-        </form>
       </div>
       <div id="park-stamp-child-2">
-        <h1>All About {park.name}</h1>
-        <p>{park.description}</p>
-        <h2>Friends You Visited With:</h2>
+        <div>
+          <h1>All About {park.name}</h1>
+          <p>{park.description}</p>
+        </div>
+        <div>
+          <h1 className="review-text">Your Memories</h1>
+          <hr></hr>
+          {reviewList}
+          <form>
+            <textarea
+              id="review-text-area"
+              rows={5}
+              placeholder={placeholder}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></textarea>
+            <br></br>
+            <button id="review-button" onClick={handleSubmit}>
+              Submit Your Memory
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

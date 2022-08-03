@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import appLogo from "../images/appLogo.png";
+import AppBar from "@mui/material/AppBar";
 
 function NavBar({ setUser }) {
   function handleLogoutClick() {
@@ -17,11 +18,8 @@ function NavBar({ setUser }) {
 
   return (
     <>
-      <header
-        className="Navbar"
-        style={{ background: "#42234e", margin: "0em 0em 1em 0em" }}
-      >
-        <div className="Toolbar">
+      <AppBar style={{ background: "#42234e", margin: "0em 0em 1em 0em" }}>
+        <div className="toolbar">
           <div className="Logo">
             {" "}
             <img alt="logo" style={{ width: "2.5em" }} src={appLogo} />
@@ -60,7 +58,7 @@ function NavBar({ setUser }) {
             </Button>
           </div>
         </div>
-      </header>
+      </AppBar>
     </>
   );
 }

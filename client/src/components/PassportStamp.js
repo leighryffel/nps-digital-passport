@@ -55,7 +55,7 @@ function PassportStamp({ park }) {
         </CardContent>
       </CardActionArea>
       <hr></hr>
-      <CardActions>
+      <CardActions id="stamp-card-toggles">
         <button className="stamp-button" onClick={() => handleViewStamp(park)}>
           Log a Memory
         </button>

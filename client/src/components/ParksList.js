@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ParkCard from "./ParkCard";
 import { Link } from "react-router-dom";
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  TablePagination,
-} from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -38,7 +32,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   }
 
   const overviewText =
-    "Welcome to the National Parks Digital Passport App! Search for a park below using the activity drop down menu or search bar. Add a park to your Bucket List or stamp parks you've visited to add them to your passport.";
+    "Welcome to the National Parks Digital Passport! Search for a park below using the activity drop down menu or search bar. Add a park to your Bucket List, or stamp parks you've visited to add them to your passport.";
 
   const activityArray = [
     "View All",
@@ -126,7 +120,8 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
 
   return (
     <div className="parks-list">
-      <Box className="park-list-photo-header"
+      <Box
+        className="park-list-photo-header"
         sx={{
           pt: 3,
           pb: 3,
@@ -138,7 +133,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
             variant="h2"
             align="center"
             color="white"
-            sx={{letterSpacing: 5}}
+            sx={{ letterSpacing: 5 }}
           >
             Visit America's National Parks
           </Typography>

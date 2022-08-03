@@ -24,7 +24,8 @@ function ReviewCard({ review, change, setChange, park, user }) {
     setToggleMemoryEdit(!toggleMemoryEdit);
   }
 
-  function handleEditSubmit() {
+  function handleEditSubmit(e) {
+    e.preventDefault();
     const newMemory = {
       user_park_id: park.id,
       user_id: user.id,
@@ -48,9 +49,17 @@ function ReviewCard({ review, change, setChange, park, user }) {
 
   return (
     <>
-      <p className="review-text" key={id}>
-        {text}
-      </p>
+      <div>
+        <p className="review-text" key={id}>
+          {text}{" "}
+          <em>
+            Posted{" "}
+            {review.created_at.substring(5, 10) +
+              "-2022 at " +
+              review.created_at.substring(11, 16)}
+          </em>
+        </p>
+      </div>
       {toggleMemoryEdit ? (
         updateMemoryForm
       ) : (
@@ -61,6 +70,7 @@ function ReviewCard({ review, change, setChange, park, user }) {
       <button className="edit-review" onClick={handleDelete}>
         X
       </button>
+      <hr></hr>
     </>
   );
 }
