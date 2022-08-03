@@ -133,28 +133,41 @@ function ParkCard({
             <strong>Description:</strong> {park.description.slice(0, 200)}...
           </Typography>
         </CardContent>
-        <CardActions>
-          <button id="park-list-activity-button" onClick={changeToggle}>
+        <CardActions id="park-card-toggles">
+          <button
+            id="park-list-activity-button"
+            variant="outlined"
+            onClick={changeToggle}
+          >
             {activityToggle ? "Hide Activities" : "View Activities"}
           </button>
           {isOnBucketList.includes(true) ? (
-            <button id="park-list-in-bucket-button">
+            <button variant="outlined" id="park-list-in-bucket-button">
               On Your Bucket List!
             </button>
           ) : (
             <button
               id="park-list-add-bucket-button"
               onClick={handleBucketClick}
+              variant="outlined"
             >
               Add to Bucket List
             </button>
           )}
           {isStamped.includes(true) ? (
-            <button id="park-list-in-passport-button">You've Visited!</button>
+            <button
+              id="park-list-in-passport-button"
+              variant="outlined"
+              sx={{ bgcolor: "#D8E3F1" }}
+            >
+              You've Visited!
+            </button>
           ) : (
             <button
               id="park-list-add-passport-button"
+              variant="contained"
               onClick={handleStampClick}
+              sx={{ bgcolor: "#D8E3F1" }}
             >
               Stamp Passport
             </button>

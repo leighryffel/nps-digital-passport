@@ -7,6 +7,7 @@ import MapView from "./MapView";
 import UserProfile from "./UserProfile";
 import Passport from "./Passport";
 import PassportReview from "./PassportReview";
+import Footer from "./Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,7 +29,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => setParks(data.data));
   }, []);
-
 
   if (!user) return <LoginPage onLogin={setUser} />;
 
@@ -62,6 +62,7 @@ function App() {
           </div>
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

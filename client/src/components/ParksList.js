@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
 import ParkCard from "./ParkCard";
 import { Link } from "react-router-dom";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  TablePagination,
+} from "@mui/material";
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
 function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [filter, setFilter] = useState("View All");
@@ -10,7 +20,6 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   const [userBucketList, setUserBucketList] = useState([]);
   const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
-  const [mapView, toggleMapView] = useState(false);
 
   useEffect(() => {
     fetch("/user_parks")
@@ -75,7 +84,9 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
     "Wildlife Watching",
   ];
 
-  const searchedParks = parks.filter((park) => park.fullName.includes(search));
+  const searchedParks = parks.filter((park) =>
+    park.fullName.toLowerCase().includes(search.toLowerCase())
+  );
 
   const selectedParks = searchedParks.filter((park) =>
     park.activities.some((activity) => activity["name"] === filter)
@@ -115,55 +126,101 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
 
   return (
     <div className="parks-list">
-      <div className="park-list-controls">
-        <h3 className="app-instructions-header">{overviewText}</h3>
-        <div className="park-list-togglers">
-          <FormControl style={{ width: "20em" }}>
-            <InputLabel id="activity-select-label">Filter</InputLabel>
-            <Select
-              labelId="activity-select-label"
-              id="activity-select"
-              value={filter}
-              label="Activity"
-              onChange={handleChange}
-            >
-              {activityArray.map((activity, index) => (
-                <MenuItem id="activity-item" key={index} value={activity}>
-                  {activity}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <form className="search-bar">
-            <input
-              id="search-bar"
-              placeholder="Search by name..."
-              type="text"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </form>
-          <Link to="/mapview">
-            <button onClick={handleMapClick} className="toggle-map-view">
-              <strong>Switch to Map View</strong>
-            </button>
-          </Link>
-        </div>
-      </div>
+      <Box className="park-list-photo-header"
+        sx={{
+          pt: 3,
+          pb: 3,
+        }}
+      >
+        <Container maxWidth="m">
+          <Typography
+            id="park-list-header"
+            variant="h2"
+            align="center"
+            color="white"
+            sx={{letterSpacing: 5}}
+          >
+            Visit America's National Parks
+          </Typography>
+        </Container>
+      </Box>
+      <Box
+        id="parks-list-heading"
+        sx={{
+          bgcolor: "white",
+          pt: 8,
+          pb: 6,
+        }}
+      >
+        <Container maxWidth="m">
+          <Typography
+            id="park-list-header"
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+          >
+            {overviewText}
+          </Typography>
+          <Stack
+            sx={{ pt: 4 }}
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+          >
+            <div className="park-list-togglers">
+              <FormControl style={{ width: "20em" }}>
+                <InputLabel id="activity-select-label">Filter</InputLabel>
+                <Select
+                  labelId="activity-select-label"
+                  id="activity-select"
+                  value={filter}
+                  label="Activity"
+                  onChange={handleChange}
+                >
+                  {activityArray.map((activity, index) => (
+                    <MenuItem id="activity-item" key={index} value={activity}>
+                      {activity}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <form className="search-bar">
+                <input
+                  id="search-bar"
+                  placeholder="Search by name..."
+                  type="text"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </form>
+              <Link to="/mapview">
+                <button
+                  id="park-list-controls-button"
+                  onClick={handleMapClick}
+                  className="toggle-map-view"
+                >
+                  <strong>Switch to Map View</strong>
+                </button>
+              </Link>
+            </div>
+          </Stack>
+        </Container>
+      </Box>
       {filter === "View All" ? (
-        <h3>All Parks</h3>
+        <h2 className="selected-parks-header">All Parks</h2>
       ) : (
-        <h3>Parks with {filter}</h3>
+        <h2 className="selected-parks-header">Parks with {filter}</h2>
       )}
       <div>
         {filter === "View All" ? (
-          <div>
-            <Grid container spacing={1}>
+          <div className="parks-container-div">
+            <Grid container justifyContent="center">
               {fullListToRender}
             </Grid>
           </div>
         ) : (
-          <div>
-            <Grid container spacing={1}>
+          <div className="parks-container-div">
+            <Grid container justifyContent="center">
               {filteredListToRender}
             </Grid>
           </div>

@@ -18,7 +18,6 @@ function UserProfile({ user }) {
   }
 
   function handleSubmit() {
-    // e.preventDefault();
     let newUserInfo = {};
     if (imageUrl === "" && location === "") {
       newUserInfo = {

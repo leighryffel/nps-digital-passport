@@ -4,29 +4,34 @@ body {
 
 .input-text-field {
   color:#42234e;
-    border: none;
-    border: solid 1px #ccc;
-    border-radius: 10px;
+  border: none;
+  border: solid 1px #ccc;
+  border-radius: 10px;
 }
 
 body #user-profile {
   background-color: #ac5169;
-  margin: 6em 5em 5em 2em;
+  /* margin: 6em 5em 5em 2em; */
+  margin-top: 6em;
+  margin-left: auto;
+  margin-right: auto;
   font-family: 'Montserrat', sans-serif;
   border-radius: 5% 5% 5% 5%;
-  width: 50%;
+  width: 40%;
+  
 }
 
 body #user-profile h1 {
   font-family: 'Montserrat', sans-serif;
   margin-left: 1em;
+  padding-top: 0.5em;
 }
 
 body #user-information {
   background-color: #fe9ea2;
-  width: 60%;
   border-radius: 5% 5% 5% 5%;
-  margin-left: 1em;
+  padding: 1em 1em 1em 1em;
+  margin: 1em 1em 1em 1em;
 }
 
 #login-page-header{
@@ -136,14 +141,16 @@ body .update-profile {
 
 #nav-links {
   color: white;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-items: end; */
+  display: flex;
+  /* align-items: center;
+  justify-items: end; */
 }
 
 #nav-title {
   margin-left: 0.5em;
   font-family: 'Montserrat', sans-serif;
+  flex-grow: 1;
+  color: white;
 }
 
 #nav-link-1 {
@@ -162,25 +169,25 @@ body .update-profile {
   font-family: 'Montserrat', sans-serif;
 }
 
+#parks-list-heading {
+  padding: 1em 1em 1em 1em;
+}
+
 .parks-list {
   font-family: 'Montserrat', sans-serif;
-  margin-left: 1em;
+  margin-top: 4em;
 }
 
 #park-browser-card {
-  width: 32%;
+  width: 21%;
   margin: 0.5em 0.5em 0.5em 0.5em;
 }
 
-
-.park-list-controls {
-  margin-top: 5em;
-  font-family: 'Montserrat', sans-serif;
-  margin-bottom: 2.5em;
-  height: 4em;
+#park-list-header {
+  font-family: 'Montserrat', sans-serif; 
 }
 
-.park-list-controls button {
+#park-list-controls-button {
   font-family: 'Montserrat', sans-serif;
   padding: 1em;
   margin-right: 1em;
@@ -192,6 +199,10 @@ body .update-profile {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.selected-parks-header{
+  padding-left: 1em;
 }
 
 .search-bar input {
@@ -233,22 +244,31 @@ body .update-profile {
 
 #park-list-activity-button {
   font-family: 'Montserrat', sans-serif;
+  height: 3em;
 }
 
 #park-list-in-bucket-button {
   font-family: 'Montserrat', sans-serif;
+  height: 3em;
 }
 
 #park-list-add-bucket-button {
   font-family: 'Montserrat', sans-serif;
+  height: 3em;
 }
 
 #park-list-in-passport-button {
   font-family: 'Montserrat', sans-serif;
+  height: 3em;
 }
 
 #park-list-add-passport-button {
   font-family: 'Montserrat', sans-serif;
+  height: 3em;
+}
+
+#park-card-toggles {
+  justify-content: center;
 }
 
 #stamp-title {
@@ -329,4 +349,33 @@ body .update-profile {
   padding: 0.3em 0.3em 0.3em 0.3em;
   border-radius: 2% 2% 2% 2%;
   margin-right: 1em;
+}
+
+#footer-title{
+  font-family: 'Montserrat', sans-serif;
+}
+
+#footer-text{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.park-list-photo-header{
+  background-size: 100% 300%;
+  background-image: url("http://store-images.s-microsoft.com/image/apps.38512.14373984023076920.5e9b70d5-179d-4c4c-a317-96cfb25d8abe.c2d31c92-31cd-4a98-bb67-73bd4130b7b6")
+}
+
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: auto;
+  right: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.Toolbar {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  padding: 0px 10px;
 }

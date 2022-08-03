@@ -42,7 +42,7 @@ function Passport({ user, selectedPark, setSelectedPark }) {
         <h4>{user.stamps_count} parks visited! Ready for your next trip?</h4>
       </div>
       <div>
-        <Grid container spacing={1}>
+        <Grid container justifyContent="center">
           {stampList}
         </Grid>
       </div>

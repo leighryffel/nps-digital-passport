@@ -29,7 +29,7 @@ function PassportStamp({ park }) {
     <Card
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseAway}
-      sx={{ maxWidth: 200, margin: "1em 1em 1em 1em" }}
+      sx={{ width: "15%", margin: "1em 1em 1em 1em" }}
     >
       <CardActionArea>
         <CardMedia
