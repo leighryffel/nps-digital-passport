@@ -93,7 +93,7 @@ function SignupForm({ onLogin }) {
           margin="normal"
           fullWidth
           name="avatar"
-          label="Upload a Profile Picture"
+          label="Choose a Profile Picture (URL)"
           id="avatar"
           autoComplete="avatar"
         />
