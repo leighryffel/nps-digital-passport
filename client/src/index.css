@@ -244,26 +244,39 @@ body .update-profile {
 #park-list-activity-button {
   font-family: 'Montserrat', sans-serif;
   height: 3em;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px #727172;
 }
 
 #park-list-in-bucket-button {
   font-family: 'Montserrat', sans-serif;
   height: 3em;
+  box-shadow: 4px 4px #9065b5;
+  background-color: #ead8fa;
+  border-radius: 25px 25px 25px 25px;
 }
 
 #park-list-add-bucket-button {
   font-family: 'Montserrat', sans-serif;
   height: 3em;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px #727172;
 }
 
 #park-list-in-passport-button {
   font-family: 'Montserrat', sans-serif;
   height: 3em;
+  box-shadow: 4px 4px #9065b5;
+  background-color: #ead8fa;
+  border-radius: 25px 25px 25px 25px;
 }
+
 
 #park-list-add-passport-button {
   font-family: 'Montserrat', sans-serif;
   height: 3em;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px #727172;
 }
 
 #park-card-toggles {
@@ -283,6 +296,9 @@ body .update-profile {
   margin-left: 0.3em;
   margin-right: 0.3em;
   height: 3em;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px #9065b5;
+  background-color: #ead8fa;
 }
 
 #toggle-list-view {
@@ -380,7 +396,8 @@ body .update-profile {
 }
 
 #map-container{
-  width: 65%;
+  width: 100%;
+  height: 50em;
   /* margin-left: auto;
   margin-right: auto; */
   justify-content: center;
@@ -396,9 +413,36 @@ body .update-profile {
 
 #map-frame{
   border: 0;
-  margin-top: -150px;
+  /* margin-top: -150px; */
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  float:right;
+  /* width: 100%; */
+  height: 100%;
+  /* float:right; */
+}
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0;
+  overflow: hidden;
+  margin-left: auto;
+  margin-bottom: 2em;
+  margin-right: auto;
+  width: 75%;
+  justify-content: center;
+}
+
+.google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  top: -60px;
+}
+
+.bucket-list-item{
+  padding-left: 1em;
 }

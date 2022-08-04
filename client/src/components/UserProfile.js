@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function UserProfile({ user }) {
   const [toggleUpdateForm, setToggleUpdateForm] = useState(false);
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [bucketListParks, setBucketListParks] = useState([]);
+  const [userParks, setUserParks] = useState([]);
 
   function handleUpdateClick() {
     setToggleUpdateForm(!toggleUpdateForm);
@@ -50,6 +52,30 @@ function UserProfile({ user }) {
     });
   }
 
+  useEffect(() => {
+    fetch("/bucket_list_parks")
+      .then((res) => res.json())
+      .then(setBucketListParks);
+  }, []);
+
+  useEffect(() => {
+    fetch("/user_parks")
+      .then((res) => res.json())
+      .then(setUserParks);
+  }, []);
+
+  const filteredBucketParks = bucketListParks.filter(
+    (park) => park.user.username === user.username
+  );
+
+  const bucketListNames = filteredBucketParks.map((park) => (
+    <li key={park.id}>{park.name}</li>
+  ));
+
+  const filteredUserParks = userParks.filter(
+    (park) => park.user.username === user.username
+  );
+
   return (
     <div id="user-profile">
       <h1>Account Information</h1>
@@ -57,16 +83,26 @@ function UserProfile({ user }) {
         <img id="user-avatar" alt="avatar" src={user.image_url} />
         <ul>
           <li>
-            <strong>Username:</strong> {user.username}
+            <strong>Username: </strong> {user.username}
           </li>
+          <br></br>
           <li>
-            <strong>Location:</strong> {user.location}
+            <strong>Location: </strong> {user.location}
           </li>
+          <br></br>
+
           <li>
-            <strong>Bucket List Parks:</strong> {user.bucket_count}
+            <strong>On Your Bucket List: </strong>
           </li>
+          {bucketListParks.length > 0 ? (
+            <ul className="bucket-list-item">{bucketListNames}</ul>
+          ) : null}
+          <br></br>
+
           <li>
-            <strong>Number of Parks Visited:</strong> {user.stamps_count} / 63 parks!
+            <strong>Number of Parks Visited:</strong>{" "}
+            {filteredUserParks.length > 0 ? filteredUserParks.length : 0} / 63
+            parks!
           </li>
         </ul>
       </div>

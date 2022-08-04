@@ -7,12 +7,4 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
 
-  def bucket_count
-    return self.bucket_list_parks.count
-  end
-
-  def stamps_count
-    return self.user_parks.count
-  end
-
 end

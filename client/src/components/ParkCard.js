@@ -37,7 +37,7 @@ function ParkCard({
       body: JSON.stringify({
         id: newId,
         user_id: user.id,
-        name: park.fullName,
+        name: park.name,
         latitude: park.latitude,
         longitude: park.longitude,
         activities: park.activities,
@@ -61,7 +61,7 @@ function ParkCard({
       body: JSON.stringify({
         id: newId,
         user_id: user.id,
-        name: park.fullName,
+        name: park.name,
         latitude: park.latitude,
         longitude: park.longitude,
         activities: park.activities,
@@ -84,18 +84,18 @@ function ParkCard({
   );
 
   const isStamped = filteredUserParks.map((user_park) =>
-    user_park.name === park.fullName ? true : false
+    user_park.name === park.name ? true : false
   );
 
   const isOnBucketList = filteredBucketParks.map((bucket_list_park) =>
-    bucket_list_park.name === park.fullName ? true : false
+    bucket_list_park.name === park.name ? true : false
   );
 
   if (
     park.designation === "National Park" ||
     park.designation === "National and State Parks" ||
     park.designation === "National Parks" ||
-    park.fullName === "National Park of American Samoa"
+    park.name === "National Park of American Samoa"
   ) {
     return (
       <Card id="park-browser-card">
@@ -109,7 +109,7 @@ function ParkCard({
           {isStamped.includes(true) ? (
             <>
               <Typography id="park-text-title" variant="h5">
-                {park.fullName}
+                {park.name}
               </Typography>
               <img
                 alt="park stamp"
@@ -120,7 +120,7 @@ function ParkCard({
             </>
           ) : (
             <Typography id="park-text-title" variant="h5">
-              {park.fullName}
+              {park.name}
             </Typography>
           )}
           <Typography id="park-text-location">
