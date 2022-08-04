@@ -66,8 +66,7 @@ function UserProfile({ user }) {
             <strong>Bucket List Parks:</strong> {user.bucket_count}
           </li>
           <li>
-            <strong>Number of Parks Visited:</strong> {user.stamps_count} / 63
-            parks!
+            <strong>Number of Parks Visited:</strong> {user.stamps_count} / 63 parks!
           </li>
         </ul>
       </div>

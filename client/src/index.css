@@ -378,3 +378,27 @@ body .update-profile {
   align-items: center;
   padding: 0px 10px;
 }
+
+#map-container{
+  width: 65%;
+  /* margin-left: auto;
+  margin-right: auto; */
+  justify-content: center;
+  align-items: center;
+  flex: auto;
+}
+
+#map-test{
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+}
+
+#map-frame{
+  border: 0;
+  margin-top: -150px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  float:right;
+}

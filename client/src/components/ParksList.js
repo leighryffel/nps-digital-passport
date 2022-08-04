@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ParkCard from "./ParkCard";
-import { Link } from "react-router-dom";
+import MapView from "./MapView";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
@@ -8,12 +8,19 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
+function ParksList({
+  user,
+  parks,
+  addParkToBucketList,
+  addParkToStamps,
+  change,
+  setChange,
+}) {
   const [filter, setFilter] = useState("View All");
   const [userParks, setUserParks] = useState([]);
   const [userBucketList, setUserBucketList] = useState([]);
-  const [change, setChange] = useState(false);
   const [search, setSearch] = useState("");
+  const [mapViewToggle, setMapViewToggle] = useState(false);
 
   useEffect(() => {
     fetch("/user_parks")
@@ -115,7 +122,7 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
   ));
 
   function handleMapClick() {
-    console.log("View Map!");
+    setMapViewToggle(!mapViewToggle);
   }
 
   return (
@@ -188,39 +195,50 @@ function ParksList({ user, parks, addParkToBucketList, addParkToStamps }) {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </form>
-              <Link to="/mapview">
-                <button
-                  id="park-list-controls-button"
-                  onClick={handleMapClick}
-                  className="toggle-map-view"
-                >
+              <button
+                id="park-list-controls-button"
+                onClick={handleMapClick}
+                className="toggle-map-view"
+              >
+                {mapViewToggle ? (
+                  <strong>Switch to List View</strong>
+                ) : (
                   <strong>Switch to Map View</strong>
-                </button>
-              </Link>
+                )}
+              </button>
             </div>
           </Stack>
         </Container>
       </Box>
-      {filter === "View All" ? (
-        <h2 className="selected-parks-header">All Parks</h2>
-      ) : (
-        <h2 className="selected-parks-header">Parks with {filter}</h2>
-      )}
-      <div>
-        {filter === "View All" ? (
-          <div className="parks-container-div">
-            <Grid container justifyContent="center">
-              {fullListToRender}
-            </Grid>
-          </div>
+      <Box>
+        {mapViewToggle ? (
+          <MapView />
         ) : (
-          <div className="parks-container-div">
-            <Grid container justifyContent="center">
-              {filteredListToRender}
-            </Grid>
-          </div>
+          <>
+            {filter === "View All" ? (
+              <h2 className="selected-parks-header">All Parks</h2>
+            ) : (
+              <h2 className="selected-parks-header">Parks with {filter}</h2>
+            )}
+
+            <div>
+              {filter === "View All" ? (
+                <div className="parks-container-div">
+                  <Grid container justifyContent="center">
+                    {fullListToRender}
+                  </Grid>
+                </div>
+              ) : (
+                <div className="parks-container-div">
+                  <Grid container justifyContent="center">
+                    {filteredListToRender}
+                  </Grid>
+                </div>
+              )}
+            </div>
+          </>
         )}
-      </div>
+      </Box>
     </div>
   );
 }

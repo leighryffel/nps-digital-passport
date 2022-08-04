@@ -39,7 +39,7 @@ function Passport({ user, selectedPark, setSelectedPark }) {
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Stamps {image}
         </h1>
-        <h4>{user.stamps_count} parks visited! Ready for your next trip?</h4>
+        {filteredUserParks.length > 0 ? <h4>{filteredUserParks.length} parks visited! Ready for your next trip?</h4> : null}
       </div>
       <div>
         <Grid container justifyContent="center">

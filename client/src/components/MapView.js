@@ -1,22 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function MapView() {
   return (
-    <div style={{ margin: "5em 0em 0em 1em" }}>
-      <h1 id="map-header">Map View</h1>
-      <Link to="/">
-        <button id="toggle-list-view">
-          <strong>Switch to List View</strong>
-        </button>
-      </Link>
-      <div>
+    <div id="map-container">
+      <div id="map-test">
         <iframe
-          title="NPS Google Map"
+          id="map-frame"
           src="https://www.google.com/maps/d/embed?mid=1f4p3zPa1uU_gRnbQzMAqCZTPzD4&ehbc=2E312F"
-          width="640"
-          height="480"
+          height="650"
+          width="650"
+          frameborder="0"
           alt="Park Map"
+          title="NPS Google Map"
         ></iframe>
       </div>
     </div>

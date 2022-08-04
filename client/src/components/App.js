@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
 import NavBar from "./NavBar";
 import ParksList from "./ParksList";
-import MapView from "./MapView";
 import UserProfile from "./UserProfile";
 import Passport from "./Passport";
 import PassportReview from "./PassportReview";
@@ -12,6 +11,7 @@ import Footer from "./Footer";
 function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
+  const [change, setChange] = useState(false);
   const [selectedPark, setSelectedPark] = useState({});
 
   useEffect(() => {
@@ -39,9 +39,6 @@ function App() {
         <Route path="/profile">
           <UserProfile user={user} />
         </Route>
-        <Route path="/mapview">
-          <MapView parks={parks} />
-        </Route>
         <Route path="/passport">
           <Passport
             user={user}
@@ -58,7 +55,12 @@ function App() {
         </Route>
         <Route path="/">
           <div>
-            <ParksList user={user} parks={parks} />
+            <ParksList
+              user={user}
+              parks={parks}
+              change={change}
+              setChange={setChange}
+            />
           </div>
         </Route>
       </Switch>
