@@ -37,7 +37,11 @@ function Passport({ user }) {
           {user.username.charAt(0).toUpperCase() + user.username.slice(1)}'s
           Stamps {image}
         </h1>
-        {filteredUserParks.length > 0 ? <h4>{filteredUserParks.length} parks visited! Ready for your next trip?</h4> : null}
+        {filteredUserParks.length > 0 ? (
+          <h4>
+            {filteredUserParks.length} {filteredUserParks.length > 1 ? "parks" : "park"} visited! Ready for your next trip?
+          </h4>
+        ) : null}
       </div>
       <div>
         <Grid container justifyContent="center">
