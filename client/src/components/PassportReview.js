@@ -4,17 +4,28 @@ import ReviewCard from "./ReviewCard";
 
 function PassportReview({ user }) {
   const history = useHistory();
-  const park = history.location.state.data;
   const [text, setText] = useState("");
   const [reviews, setReviews] = useState([]);
   const [change, setChange] = useState(false);
-  const placeholder = `Write a memory about visiting ${park.name}`;
 
   useEffect(() => {
     fetch("/reviews")
       .then((res) => res.json())
       .then(setReviews);
   }, [change]);
+
+  if (!history.location.state) {
+    return (
+      <div id="park-stamp-parent">
+        <div id="park-stamp-child-1">
+          <h1 className="review-text">Stamp Parks to add Memories!</h1>
+        </div>
+      </div>
+    );
+  }
+
+  const park = history.location.state.data;
+  const placeholder = `Write a memory about visiting ${park.name}`;
 
   const filteredReviews = reviews.filter(
     (review) => review.user_park_id === park.id

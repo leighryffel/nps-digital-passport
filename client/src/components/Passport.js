@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PassportStamp from "./PassportStamp";
 import { Grid } from "@mui/material";
 
-function Passport({ user, selectedPark, setSelectedPark }) {
+function Passport({ user }) {
   const [userParks, setUserParks] = useState([]);
 
   useEffect(() => {
@@ -17,8 +17,6 @@ function Passport({ user, selectedPark, setSelectedPark }) {
 
   const stampList = filteredUserParks.map((userPark) => (
     <PassportStamp
-      selectedPark={selectedPark}
-      setSelectedPark={setSelectedPark}
       park={userPark}
       key={userPark.id}
     />

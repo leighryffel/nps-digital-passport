@@ -12,7 +12,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [parks, setParks] = useState([]);
   const [change, setChange] = useState(false);
-  const [selectedPark, setSelectedPark] = useState({});
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -42,14 +41,10 @@ function App() {
         <Route path="/passport">
           <Passport
             user={user}
-            selectedPark={selectedPark}
-            setSelectedPark={setSelectedPark}
           />
         </Route>
         <Route path="/review">
           <PassportReview
-            selectedPark={selectedPark}
-            setSelectedPark={setSelectedPark}
             user={user}
           />
         </Route>
