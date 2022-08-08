@@ -101,7 +101,7 @@ function UserProfile({ user }) {
 
           <li>
             <strong>Number of Parks Visited:</strong>{" "}
-            {filteredUserParks.length > 0 ? filteredUserParks.length : 0} / 63
+            {filteredUserParks.length > 0 ? filteredUserParks.length : 0} / 62
             parks!
           </li>
         </ul>

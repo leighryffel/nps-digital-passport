@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     fetch(
-      `https://developer.nps.gov/api/v1/parks?limit=159&q=designation%3D%22National%20Park%22&api_key=${process.env.REACT_APP_API_KEY}`
+      `https://developer.nps.gov/api/v1/parks?limit=160&q=designation%3D%22National%20Park%22&api_key=${process.env.REACT_APP_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => setParks(data.data));

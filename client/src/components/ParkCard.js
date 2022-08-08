@@ -93,6 +93,8 @@ function ParkCard({
 
   if (
     park.designation === "National Park" ||
+    park.designation === "National Park & Preserve" ||
+    park.designation === "National Park and Preserve" ||
     park.designation === "National and State Parks" ||
     park.designation === "National Parks" ||
     park.name === "National Park of American Samoa"
@@ -127,7 +129,8 @@ function ParkCard({
             <strong>Located in:</strong> {park.states}
           </Typography>
           <Typography id="park-text-designation">
-            <strong>Designation:</strong> {park.designation}
+            <strong>Designation:</strong>{" "}
+            {park.designation !== "" ? park.designation : "National Park"}
           </Typography>
           <Typography id="park-text-designation">
             <strong>Description:</strong> {park.description.slice(0, 200)}...
