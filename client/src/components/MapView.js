@@ -1,5 +1,4 @@
 import React from "react";
-// import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 function MapView() {
   return (
@@ -11,16 +10,6 @@ function MapView() {
         alt="Park Map"
         title="NPS Google Map"
       ></iframe>
-      {/* <LoadScript googleMapsApiKey="AIzaSyB7EAf4vYzYRqnkiQcv5gFc8yGCnsH23ww">
-        <GoogleMap
-          mapContainerStyle={{
-            width: "400px",
-            height: "400px",
-          }}
-          center={{ lat: -3.745, lng: -38.523 }}
-          zoom={10}
-        ></GoogleMap>
-      </LoadScript> */}
     </div>
   );
 }
